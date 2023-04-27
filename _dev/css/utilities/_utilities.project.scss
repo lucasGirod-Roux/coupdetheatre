@@ -1,0 +1,23 @@
+.u-relative{
+    position: relative;
+}
+// Text
+.u-small-txt{
+    font-size: $font-size-sm;
+}
+.u-txt-center{
+    text-align: center;
+}
+.u-txt-white{
+    color: $white;
+}
+// Background
+.u-bg-primary{
+    background-color: $primary;
+}
+.u-bg-secondary{
+    background-color: $secondary;
+}
+.u-bg-white{
+    background-color: $white;
+}
