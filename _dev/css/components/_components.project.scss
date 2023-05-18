@@ -1,35 +1,23 @@
 //A modifier par la suite
 html{
     font-family: $font-family-base;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 body{
     overflow-x: hidden;
 }
-
-.btn-white{
-    font-weight: $btn-font-weight;
-    font-size: $btn-font-size;
-    border-radius: $btn-border-radius;
-    padding: $btn-padding-y $btn-padding-x;
-    text-align: center;
-    background-color: $white;
-    color: $black;
-    &:hover{
-        background-color: $gray-55;
-        color: $black;
-    }
+.bg-relative{
+    position: relative;
 }
-.btn-primary{
-    width: fit-content;
-    font-weight: $btn-font-weight;
-    font-size: $font-size-sm;
-    border-radius: $btn-border-radius;
-    padding: $btn-padding-y $btn-padding-x;
-    text-align: center;
-    background-color: $primary;
-    color: $white;
-    &:hover{
-        background-color: $primary-hover;
-        color: $white;
+.c-bg-img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 0;
+    width: 95%;
+    
+    @include media-breakpoint-mobile{
+        width: 130%;
     }
 }

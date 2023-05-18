@@ -1,0 +1,77 @@
+.c-inscr{
+    display: flex;
+    background-color: $primary-light;
+    margin-bottom: 7rem;
+    @include media-breakpoint-mobile{
+        flex-direction: column;
+        margin-bottom: 2.5rem;
+    }
+}
+.c-inscr__bloc-img{
+    width: 60%;
+    img{
+        width: 100%;
+        border-radius: 0 300px 300px 0;
+    }
+    @include media-breakpoint-mobile{
+        width: 100%;
+        img{
+            border-radius: 0;
+        }
+    }
+}
+.c-inscr__bloc-txt{
+    width: 40%;
+    padding: 3rem 5rem;
+    @include media-breakpoint-mobile{
+        width: 100%;
+        padding: 2rem;
+    }
+}
+
+.c-inscr__title{
+    font-size: $h1-font-size;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    color: $gray;
+    @include media-breakpoint-mobile{
+        font-size: $h2-mobile-font-size;
+        text-align: center;
+    }
+}
+
+.c-inscr-text{
+    font-size: $h3-font-size;
+    color: $gray;
+    margin-bottom: 1rem;
+    @include media-breakpoint-mobile{
+        font-size:$font-size-base;
+        text-align: center;
+    }
+}
+.c-inscr-relative{
+    position: relative;
+}
+
+.c-inscr-btn{
+    display: block;
+    width: fit-content;
+    color: $white;
+    background-color: $gray;
+    text-transform: uppercase;
+    font-size: $h3-font-size;
+    font-weight: $headings-font-weight;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 3rem;
+    &:hover{
+        color: $white;
+        background-color: $secondary;
+    }
+    @include media-breakpoint-mobile{
+        margin-right: auto;
+        margin-left: auto;
+        padding: 1rem;
+        font-size: $font-size-base;
+    }
+}

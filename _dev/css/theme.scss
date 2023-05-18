@@ -11,12 +11,9 @@
 
 @import "node_modules/bootstrap/scss/variables";
 
-@import "./settings/settings.alert";
 @import "./settings/settings.fonts";
 @import "./settings/settings.search";
-@import "./settings/settings.tags";
 @import "./settings/settings.utilities";
-@import "./settings/settings.buttons";
 
 /*
 /*
@@ -81,21 +78,21 @@ $theme-colors: map-remove($theme-colors, "primary", "secondary", "success", "inf
 
 //My components
 @import "./components/components.project";
+@import "./components/components.header";
+@import "./components/components.footer";
+@import "./components/components.home";
 
 
 //Component project
-
+@import "./project/components.soon";
+@import "./project/components.pre-inscr";
+@import "./project/components.contact-form";
 
 /*
 /*
 /* UTILITIES */
-@import "./utilities/utilities.clearfix";
 @import "./utilities/utilities.display";
-@import "./utilities/utilities.images";
-@import "./utilities/utilities.ratio";
-@import "./utilities/utilities.stretched-link";
 @import "./utilities/utilities.type";
-@import "./utilities/utilities.visually-hidden";
 
 @import "node_modules/bootstrap/scss/utilities/api";
 

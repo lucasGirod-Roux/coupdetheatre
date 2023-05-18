@@ -1,0 +1,52 @@
+.c-home{
+    margin-top: 10rem;
+    position: relative;
+    z-index: 1;
+}
+.c-home__bloc-title{
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.c-home-title{
+    color: #231F20;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+}
+.c-home-subtitle{
+    color: $gray;
+    text-align: center;
+    padding: 0 2rem;
+}
+@include media-breakpoint-mobile{
+    .c-home{
+        margin-top: 3rem;
+    }
+    .c-home__bloc-title{
+        width: 100%;
+    }
+    .c-home-title{
+        font-size: $h4-font-size;
+    }
+    .c-home-subtitle{
+        font-size: $h5-font-size;
+        padding: 0;
+    }   
+}
+
+// BLOC DESCRIPTION
+.c-home-desc{
+    margin-top: 14.5rem;
+    svg{
+        color: $gray;
+    }
+    margin-bottom: 5rem;
+}
+.c-home-desc__txt{
+    font-size: $h2-font-size;
+    width: 80%;
+    color: $secondary-light;
+    margin-bottom: 2rem;
+}

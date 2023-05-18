@@ -1,16 +1,19 @@
 /*
 Colors
 */
-
-$light:                            #FBF7EF ;
-$gray:                             #BFBFBF ;
 $black:                            #000    ;
+$light:                            #FBF7EF ;
+$gray:                             #403E40 ;
+$gray-300:                         #6C6E70 ;
+$gray-white:                       #AFAFAF ;
+$gray-light:                       #7F7F7F ;
 
-$primary:                          #33664F ;
-$secondary:                        #762A3F ;
-$tertiary:                         #FDBA26 ;
 
-$body-color:                       $secondary ;
+$primary:                          #CCD730 ;
+$primary-hover:                    #b4be2a ;
+$primary-light:                    #DFE680 ;
+$secondary:                        #231F20 ;
+$secondary-light:                  #1E1E1E ;
 
 /*
 Spacer
@@ -20,10 +23,10 @@ $spacer:                            1rem;
 /*
 Typography
 */
-$font-family-sans-serif:           'Montserrat', -apple-system, blinkmacsystemfont, "Segoe UI", "Helvetica Neue", arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-sans-serif:           'Liberation sans', -apple-system, blinkmacsystemfont, "Segoe UI", "Helvetica Neue", arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-$headings-font-family:             'Montserrat', -apple-system, blinkmacsystemfont, "Segoe UI", "Helvetica Neue", arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-$headings-font-weight:             700 ;// a modif
+$headings-font-family:             'Arial', -apple-system, blinkmacsystemfont, "Segoe UI", "Helvetica Neue", arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$headings-font-weight:             700 ;
 $font-weight-normal:               400 ;
 $headings-line-height:             1.25 ;
 
