@@ -1,0 +1,190 @@
+.c-artcl-page{
+    margin-top: 5rem;
+}
+.c-artcl-header{
+    padding-bottom: 4rem;
+    border-bottom: 1.5px solid $gray-dark;
+}
+.c-artcl-header-flex{
+    display: flex;
+    gap: 6rem;
+}
+.c-artcl__bloc-picture{
+    p{
+        margin-bottom: 0;
+        font-size: $h4-font-size;
+        color: $gray;
+    }
+    span{
+        font-weight: $headings-font-weight;
+    }
+}
+.c-artcl__header-img{
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.c-artcl__title{
+    font-size: $h2-font-size;
+    margin-bottom: .25rem;
+    color: $secondary;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.c-artcl__cat{
+    color: $gray-dark;
+    font-size: $h3-font-size;
+    margin-bottom: 2.5rem;
+}
+.c-artcl-inf__title{
+    text-transform: uppercase;
+    color: $secondary;
+    font-size: $h3-font-size;
+    margin-bottom: 3.5rem;
+}
+.c-artcl-bloc-inf{
+    display: flex;
+    justify-content: space-between;
+    color: $gray;
+    font-size: $h4-font-size;
+    margin-bottom: 3rem;
+    gap: 2rem;
+    .c-artcl__inf-label{
+        color: $gray-white;
+        font-size: $h4-font-size;
+    }
+}
+
+.c-artcl__content{
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+    border-bottom: 1.5px solid $gray-dark;
+}
+.c-artcl-content__title{
+    text-transform: uppercase;
+    color: $gray;
+    font-size: $h1-font-size;
+    margin-bottom: 2rem;
+}
+.c-artcl-content__txt{
+    width: 75%;
+    font-size: $h3-font-size;
+    p{margin-bottom: 0;}
+}
+
+.c-artcl__reserved{
+    border-radius: 10px;
+    height: fit-content;
+}
+// GALERIE
+.c-artcl-galerie{
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+    border-bottom: 1.5px solid $gray-dark;
+}
+.c-artcl_galerie__section{
+    display: flex;
+    gap: 3rem;
+    overflow-x: scroll;
+}
+.c-artcl-galerie__item{
+    display: block;
+    min-width: 400px;
+
+    img{
+        width: 100%;
+        height: auto;
+        box-shadow: 0 4px 20px rgba(0,0,0,.1);
+        border-radius: 10px;
+    }
+}
+
+//COMMENTS
+.c-comments{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+.c-artcl-comments__title, .c-artcl-comments__title2{
+    text-transform: uppercase;
+    color: $gray;
+}
+.c-artcl-comments__title{
+    margin-bottom: 4rem;
+    font-size: $h1-font-size;
+}
+.c-artcl-comments__title2{
+    margin-bottom: 2rem;
+    font-size: $h2-font-size;
+    order: 1;
+}
+.c-comments-section{
+    border: 5px solid $primary;
+    padding: 3.5rem 2rem;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+}
+.c-comments__grid{
+    display: flex;
+    flex-direction: column;
+}
+.c-comments-section{
+    .comment-form-url,.comment-form-cookies-consent,label, .comment-notes{display: none; }
+    
+    .comment-form-author, .comment-form-comment, .comment-form-email{
+        & input, & textarea{
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            width: 100%;
+            font-size: $h4-font-size;
+
+            &::placeholder{
+                font-size: $h4-font-size;
+                color: $gray;
+                opacity: 1;
+            }
+        }
+        
+    }
+    .c-comments__btn-submit{
+        background-color: $primary;
+        padding: .5rem 1.5rem;
+        color: $white;
+        text-transform: uppercase;
+        display: block;
+        width: fit-content;
+        font-weight: $headings-font-weight;
+        font-size: $h3-font-size;
+        &:hover{
+            background-color: $primary-hover;
+        }
+    }
+    .c-comments-list{
+        order: 2;
+        .says, .reply,.edit-link{display: none;}
+        .comment-author{
+            color: $gray;
+            font-size: $font-size-lg;
+            margin-bottom: .5rem;
+            font-weight: $headings-font-weight;
+        }
+        .comment-metadata{
+            color: $gray-dark;
+            font-size: 1rem;
+            margin-bottom: .5rem;
+        }
+        .comment-content{
+            font-size: $font-size-lg;
+            color: $secondary;
+        }
+        li{
+            list-style: none;
+        }
+        .comment-meta{
+            background-color: transparent;
+        }
+    }
+    .c-comments-write{
+        order: 3;
+    }
+
+}

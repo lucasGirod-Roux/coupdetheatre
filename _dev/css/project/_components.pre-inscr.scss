@@ -2,7 +2,7 @@
     display: flex;
     background-color: $primary-light;
     margin-bottom: 7rem;
-    @include media-breakpoint-mobile{
+    @include media-breakpoint-tablet{
         flex-direction: column;
         margin-bottom: 2.5rem;
     }
@@ -13,7 +13,7 @@
         width: 100%;
         border-radius: 0 300px 300px 0;
     }
-    @include media-breakpoint-mobile{
+    @include media-breakpoint-tablet{
         width: 100%;
         img{
             border-radius: 0;
@@ -23,7 +23,7 @@
 .c-inscr__bloc-txt{
     width: 40%;
     padding: 3rem 5rem;
-    @include media-breakpoint-mobile{
+    @include media-breakpoint-tablet{
         width: 100%;
         padding: 2rem;
     }
@@ -34,7 +34,7 @@
     text-transform: uppercase;
     margin-bottom: 2rem;
     color: $gray;
-    @include media-breakpoint-mobile{
+    @include media-breakpoint-tablet{
         font-size: $h2-mobile-font-size;
         text-align: center;
     }
@@ -44,7 +44,7 @@
     font-size: $h3-font-size;
     color: $gray;
     margin-bottom: 1rem;
-    @include media-breakpoint-mobile{
+    @include media-breakpoint-tablet{
         font-size:$font-size-base;
         text-align: center;
     }
@@ -68,7 +68,7 @@
         color: $white;
         background-color: $secondary;
     }
-    @include media-breakpoint-mobile{
+    @include media-breakpoint-tablet{
         margin-right: auto;
         margin-left: auto;
         padding: 1rem;

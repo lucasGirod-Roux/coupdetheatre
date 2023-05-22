@@ -68,6 +68,7 @@ $theme-colors: map-remove($theme-colors, "primary", "secondary", "success", "inf
 //@import "./components/components.category";
 @import "node_modules/bootstrap/scss/dropdown";
 @import "node_modules/bootstrap/scss/modal";
+@import "node_modules/bootstrap/scss/carousel";
 @import "node_modules/bootstrap/scss/pagination";
 //@import "./components/components.search";
 @import "node_modules/bootstrap/scss/nav";
@@ -81,6 +82,7 @@ $theme-colors: map-remove($theme-colors, "primary", "secondary", "success", "inf
 @import "./components/components.header";
 @import "./components/components.footer";
 @import "./components/components.home";
+@import "./components/components.article";
 
 
 //Component project

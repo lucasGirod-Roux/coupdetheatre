@@ -1,5 +1,13 @@
 <?php get_header(); ?>
 
+<div class="bg-relative o-wrapper">
+    <picture>
+        <source media="(max-width:540px)" srcset="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/graf-haut.png">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/graf.jpg" alt="image de fond" class="c-bg-img"/>
+    </picture>
+</div>
+
+
     <div class="o-wrapper c-home">
         <div class="c-home__bloc-title">
             <h1 class="c-home-title">
@@ -20,7 +28,7 @@
             L’association est née en juillet 2003. A sa création, elle ne comptait que 7 membres. 
             Aujourd’hui, elle compte une soixantaine de membres formant 6 groupes ! 
             </p>
-            <ol>
+            <ol class="c-home-desc__list">
                 <li>Groupes Arlequin (8-10 ans): <strong>mercredi</strong>  de <strong>13h30-15h</strong></li>
                 <li>Groupes Figaro (10-12 ans): <strong>mercredi</strong> de <strong>15h15-16h30</strong></li>
                 <li>Groupes Briguella (12-15 ans): <strong>mercredi</strong> de <strong>16h45-18h</strong></li>
@@ -29,13 +37,39 @@
                 <li>Groupes Marivaux (adulte): <strong>mercredi</strong> de <strong>20h-22h</strong></li>
             </ol>
         </div>
-        <!-- Histoire -->
+    </div>
+    <!-- Histoire -->
+    <div class="bg-relative ">
+        <picture>
+            <source media="(max-width:540px)" srcset="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/histoire-mobile.png">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/graph-story.png" alt="image de fond" class="c-bg-img__story"/>
+        </picture>
+    </div>
+    <div class="c-story o-wrapper">
+        <div class="c-story__bloc-txt">
+            <h2 class="c-story__title">
+                Un collectif créatif & engagé
+            </h2>
+            <div class="c-story__txt">
+                Chaque groupe réalise un travail collectif pour la réalisation d’un ou plusieurs Week end de représentations. 
+                L’association affirme que même s’il y a un travail d’apprentissage de texte mais également d’expression corporelle, 
+                les ateliers au sein de celle-ci sont un lieu de détente et d’épanouissement individuel, et non un lieu 
+                d’acquisition de savoir comme une classe d’école peut l’être
+            </div>
+        </div>
+    </div>
 
+    <div class="o-wrapper">
         <!-- Membres -->
 
         <!-- Prochainement -->
         <?php get_template_part('template-parts/soon'); ?>
     </div>
+
+        
+
+    <!-- Map -->
+
     <?php get_template_part('template-parts/pre-inscription'); ?>
     <!-- Formulaire contact -->
     <div class="o-wrapper c-contact-form">

@@ -15,9 +15,30 @@ body{
     top: 0;
     right: 0;
     z-index: 0;
-    width: 95%;
+    width: 100%;
     
-    @include media-breakpoint-mobile{
+    @include media-breakpoint-tablet{
         width: 130%;
+    }
+}
+.c-bg-img__story{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 0;
+    width: 70%;
+    
+    @include media-breakpoint-tablet{
+        width: 110%;
+    }
+}
+
+.c-bg-img__artcile{
+    position: absolute;
+    top: -15rem;
+    right: 0;
+    z-index: 1;
+    @include media-breakpoint-tablet{
+        display: none;
     }
 }

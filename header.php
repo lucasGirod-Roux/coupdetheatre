@@ -72,11 +72,3 @@
         </div>
     </div>
 </header>
-
-<div class="bg-relative o-wrapper">
-    <picture>
-        <source media="(max-width:540px)" srcset="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/graf-haut.png">
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/graf.jpg" alt="image de fond" class="c-bg-img"/>
-    </picture>
-</div>
-
