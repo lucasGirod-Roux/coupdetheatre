@@ -15,6 +15,9 @@ header{
     font-size: $h3-font-size; //24
     color: $gray;
     ul{margin-bottom: 0;}
+    a:hover{
+        color: $primary-hover;
+    }
 }
 .c-header-icon{
     color: $gray;

@@ -83,12 +83,15 @@ $theme-colors: map-remove($theme-colors, "primary", "secondary", "success", "inf
 @import "./components/components.footer";
 @import "./components/components.home";
 @import "./components/components.article";
+@import "./components/components.categorie";
 
 
 //Component project
 @import "./project/components.soon";
+@import "./project/components.map";
 @import "./project/components.pre-inscr";
 @import "./project/components.contact-form";
+@import "./project/components.page-inscr";
 
 /*
 /*

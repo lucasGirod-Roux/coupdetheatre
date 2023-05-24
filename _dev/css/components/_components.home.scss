@@ -44,6 +44,7 @@
     margin-bottom: 3.5rem;
     width: 50%;
     @include media-breakpoint-mobile{
+        margin-top: 10rem;
         width: 100%;
     }
     svg{
@@ -64,6 +65,7 @@
     margin-bottom: 25rem;
     @include media-breakpoint-mobile{
         margin-top: 10rem;
+        margin-bottom: 15rem;
     }
 }
 .c-story__bloc-txt{
@@ -96,3 +98,4 @@
         text-align: start;
     }
 }
+

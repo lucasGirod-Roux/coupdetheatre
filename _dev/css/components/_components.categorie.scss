@@ -1,0 +1,27 @@
+.c-cat{
+    margin-top: 4rem;
+    .c-bloc-soon{
+        margin-bottom: 4rem;
+    }
+}
+.c-cat-list{
+    margin-bottom: 5rem;
+    .c-artcl-mini{
+        margin-bottom: 2rem;
+    }
+}
+.c-pagination{
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    .current{
+        border: 1px solid #ccd730;
+        border-radius: 102%;
+        padding: 1rem 1.25rem;
+    }
+}
+
+@include media-breakpoint-tablet{
+
+}

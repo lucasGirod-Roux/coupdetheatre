@@ -1,5 +1,5 @@
 .c-artcl-page{
-    margin-top: 5rem;
+    margin-top: 4rem;
 }
 .c-artcl-header{
     padding-bottom: 4rem;
@@ -52,6 +52,10 @@
     .c-artcl__inf-label{
         color: $gray-white;
         font-size: $h4-font-size;
+        width: 40%;
+    }
+    .c-artcl__inf{
+        text-align: end;
     }
 }
 
@@ -67,7 +71,7 @@
     margin-bottom: 2rem;
 }
 .c-artcl-content__txt{
-    width: 75%;
+    width: 80%;
     font-size: $h3-font-size;
     p{margin-bottom: 0;}
 }
@@ -101,15 +105,18 @@
 
 //COMMENTS
 .c-comments{
-    margin-top: 5rem;
+    margin-top: 3rem;
     margin-bottom: 5rem;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
 }
 .c-artcl-comments__title, .c-artcl-comments__title2{
     text-transform: uppercase;
     color: $gray;
 }
 .c-artcl-comments__title{
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     font-size: $h1-font-size;
 }
 .c-artcl-comments__title2{
@@ -119,8 +126,9 @@
 }
 .c-comments-section{
     border: 5px solid $primary;
-    padding: 3.5rem 2rem;
+    padding: 3.5rem 2rem 2rem 2rem;
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: $white;
 }
 .c-comments__grid{
     display: flex;
@@ -187,4 +195,78 @@
         order: 3;
     }
 
+}
+
+@include media-breakpoint-tablet{
+    .c-artcl-page{
+        margin-top: 2rem;
+    }
+    .c-artcl-header{
+        padding-bottom: 1.5rem;
+    }
+    .c-artcl-header-flex{
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .c-artcl__content, .c-artcl-galerie{
+        padding-top: 1.5rem;
+        padding-bottom: 2rem;
+    }
+    .c-comments{
+        padding-top: 1.5rem;
+        padding-bottom: 3rem;
+        margin-top: 0;
+        margin-bottom: 0;
+        width: 100%;
+    }
+    .c-artcl-comments__title{
+        margin-bottom: 2rem;
+    }
+    .c-artcl-content__title{
+        font-size: $h1-mobile-font-size;
+    }
+    .c-artcl-content__txt{
+        width: 100%;
+        font-size: $h5-font-size;
+    }
+    .c-artcl__bloc-picture{
+        margin-bottom: 1.5rem;
+        img{
+            width: 100%;
+            height: auto;
+        }
+        p{
+            align-items: center;
+            font-size: $font-size-base;
+        }
+    }
+    .c-artcl-bloc-inf{
+        margin-bottom: 1.5rem;
+    }
+    .c-artcl-galerie__item{
+        display: block;
+        min-width: 350px;
+    
+        img{
+            width: 100%;
+            height: auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,.1);
+            border-radius: 10px;
+        }
+    }
+}
+
+.c-artcl-avis{
+    .c-comments{
+        margin-bottom: 8rem;
+        @include media-breakpoint-tablet{
+            margin-bottom: 0;
+        }
+    }
+    position: relative;
+    z-index: 1;
+    .c-artcl-comments__title{
+        display: none;
+    }
 }

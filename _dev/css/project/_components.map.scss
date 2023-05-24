@@ -1,0 +1,47 @@
+.c-map{
+    margin-top: 5rem;
+    margin-bottom: 12rem;
+    display: flex;
+    justify-content: space-between;
+}
+.c-map__item{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+}
+.c-map__bloc-icon{
+    background-color: $primary;
+    border-radius: 100%;
+    padding: 1.5rem;
+    width: fit-content;
+
+    svg{
+        width: 2.5rem;
+        height: 2.5rem;
+        color: $white;
+    }
+}
+.c-map__inf{
+    font-size: $h3-font-size;
+    color: $secondary;
+}
+
+@include media-breakpoint-tablet{
+    .c-map{
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 2.5em;
+        margin-bottom: 5rem;
+    }
+    .c-map__bloc-icon{
+        padding: 1rem;
+        svg{
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+    .c-map__inf{
+        font-size: $h4-font-size;
+    }
+}

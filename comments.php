@@ -16,8 +16,7 @@ if ( post_password_required() ) {
             array(
                 'class_container'       => 'c-comments-write',
                 'class_form'            => 'c-comments-form',
-                'title_reply'           => null,
-                'comment_notes_before'  => '<h2 class="c-artcl-comments__title2">donner votre avis</h2>',
+                'title_reply'           => '<h2 class="c-artcl-comments__title2">donner votre avis</h2>',
                 'logged_in_as'          => '',
                 'label_submit'          => 'Envoyer',
                 'submit_button'         => '<input name="%1$s" type="submit" class="btn c-comments__btn-submit %3$s" value="%4$s" />',

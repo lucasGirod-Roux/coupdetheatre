@@ -7,7 +7,7 @@
         <p class="c-inscr-text">Vous êtes intéressés pour rejoindre notre association ?</p>
         <p class="c-inscr-text">Vous avez 8 ans ou plus ?</p>
         <p class="c-inscr-text">Nous avons hâte de vous accueillir !</p>
-        <a href="#" class="c-inscr-btn">pré-inscription</a>
+        <a href="./preinscription" class="c-inscr-btn">pré-inscription</a>
         </div>
     </div>
 </div>

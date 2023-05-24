@@ -27,9 +27,11 @@ body{
     right: 0;
     z-index: 0;
     width: 70%;
+    height: 800px;
     
     @include media-breakpoint-tablet{
         width: 110%;
+        height: auto;
     }
 }
 

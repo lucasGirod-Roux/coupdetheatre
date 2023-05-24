@@ -5,7 +5,9 @@ $cat_focus = new WP_Query(array(
     'category_name' => single_cat_title("", false),
     'posts_per_page' => 3,
     'paged' => $paged,
+    'tag' => 'favori',
     'orderby' => 'date',
+    'offset' => 0,
 ));
 ?>
 <div class="c-bloc-soon">
@@ -19,8 +21,8 @@ $cat_focus = new WP_Query(array(
             endwhile; ?>
         </div>
         <div class="c-soon__bloc-txt">
-            <p>Télécharger le programme 2023 au format PDF <a class="tkt-primary" href="#">ici</a></p>
-            <a href="#" class="c-soon-btn">Voir plus</a>
+            <p>Télécharger le programme 2023 au format PDF <a class="tkt-primary" href="<?php the_field('programme'); ?>">ici</a></p>
+            <a href="/category/piece/" class="c-soon-btn">Voir plus</a>
         </div>
     <?php wp_reset_postdata(); ?>
 

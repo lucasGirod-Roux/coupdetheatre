@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 16);
+/******/ 	return __webpack_require__(__webpack_require__.s = 17);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -4686,12 +4686,203 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(27);
-module.exports = __webpack_require__(26);
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+/*!
+  * Bootstrap swipe.js v5.2.3 (https://getbootstrap.com/)
+  * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+  */
+(function (global, factory) {
+  ( false ? undefined : _typeof(exports)) === 'object' && typeof module !== 'undefined' ? module.exports = factory(__webpack_require__(5), __webpack_require__(1), __webpack_require__(0)) :  true ? !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(5), __webpack_require__(1), __webpack_require__(0)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : (undefined);
+})(this, function (Config, EventHandler, index) {
+  'use strict';
 
+  var _interopDefaultLegacy = function _interopDefaultLegacy(e) {
+    return e && _typeof(e) === 'object' && 'default' in e ? e : {
+      default: e
+    };
+  };
+  var Config__default = /*#__PURE__*/_interopDefaultLegacy(Config);
+  var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
+
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap (v5.2.3): util/swipe.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+  /**
+   * Constants
+   */
+
+  var NAME = 'swipe';
+  var EVENT_KEY = '.bs.swipe';
+  var EVENT_TOUCHSTART = "touchstart".concat(EVENT_KEY);
+  var EVENT_TOUCHMOVE = "touchmove".concat(EVENT_KEY);
+  var EVENT_TOUCHEND = "touchend".concat(EVENT_KEY);
+  var EVENT_POINTERDOWN = "pointerdown".concat(EVENT_KEY);
+  var EVENT_POINTERUP = "pointerup".concat(EVENT_KEY);
+  var POINTER_TYPE_TOUCH = 'touch';
+  var POINTER_TYPE_PEN = 'pen';
+  var CLASS_NAME_POINTER_EVENT = 'pointer-event';
+  var SWIPE_THRESHOLD = 40;
+  var Default = {
+    endCallback: null,
+    leftCallback: null,
+    rightCallback: null
+  };
+  var DefaultType = {
+    endCallback: '(function|null)',
+    leftCallback: '(function|null)',
+    rightCallback: '(function|null)'
+  };
+  /**
+   * Class definition
+   */
+  var Swipe = /*#__PURE__*/function (_Config__default$defa) {
+    _inherits(Swipe, _Config__default$defa);
+    var _super = _createSuper(Swipe);
+    function Swipe(element, config) {
+      var _this;
+      _classCallCheck(this, Swipe);
+      _this = _super.call(this);
+      _this._element = element;
+      if (!element || !Swipe.isSupported()) {
+        return _possibleConstructorReturn(_this);
+      }
+      _this._config = _this._getConfig(config);
+      _this._deltaX = 0;
+      _this._supportPointerEvents = Boolean(window.PointerEvent);
+      _this._initEvents();
+      return _this;
+    } // Getters
+    _createClass(Swipe, [{
+      key: "dispose",
+      value:
+      // Public
+
+      function dispose() {
+        EventHandler__default.default.off(this._element, EVENT_KEY);
+      } // Private
+    }, {
+      key: "_start",
+      value: function _start(event) {
+        if (!this._supportPointerEvents) {
+          this._deltaX = event.touches[0].clientX;
+          return;
+        }
+        if (this._eventIsPointerPenTouch(event)) {
+          this._deltaX = event.clientX;
+        }
+      }
+    }, {
+      key: "_end",
+      value: function _end(event) {
+        if (this._eventIsPointerPenTouch(event)) {
+          this._deltaX = event.clientX - this._deltaX;
+        }
+        this._handleSwipe();
+        index.execute(this._config.endCallback);
+      }
+    }, {
+      key: "_move",
+      value: function _move(event) {
+        this._deltaX = event.touches && event.touches.length > 1 ? 0 : event.touches[0].clientX - this._deltaX;
+      }
+    }, {
+      key: "_handleSwipe",
+      value: function _handleSwipe() {
+        var absDeltaX = Math.abs(this._deltaX);
+        if (absDeltaX <= SWIPE_THRESHOLD) {
+          return;
+        }
+        var direction = absDeltaX / this._deltaX;
+        this._deltaX = 0;
+        if (!direction) {
+          return;
+        }
+        index.execute(direction > 0 ? this._config.rightCallback : this._config.leftCallback);
+      }
+    }, {
+      key: "_initEvents",
+      value: function _initEvents() {
+        var _this2 = this;
+        if (this._supportPointerEvents) {
+          EventHandler__default.default.on(this._element, EVENT_POINTERDOWN, function (event) {
+            return _this2._start(event);
+          });
+          EventHandler__default.default.on(this._element, EVENT_POINTERUP, function (event) {
+            return _this2._end(event);
+          });
+          this._element.classList.add(CLASS_NAME_POINTER_EVENT);
+        } else {
+          EventHandler__default.default.on(this._element, EVENT_TOUCHSTART, function (event) {
+            return _this2._start(event);
+          });
+          EventHandler__default.default.on(this._element, EVENT_TOUCHMOVE, function (event) {
+            return _this2._move(event);
+          });
+          EventHandler__default.default.on(this._element, EVENT_TOUCHEND, function (event) {
+            return _this2._end(event);
+          });
+        }
+      }
+    }, {
+      key: "_eventIsPointerPenTouch",
+      value: function _eventIsPointerPenTouch(event) {
+        return this._supportPointerEvents && (event.pointerType === POINTER_TYPE_PEN || event.pointerType === POINTER_TYPE_TOUCH);
+      } // Static
+    }], [{
+      key: "Default",
+      get: function get() {
+        return Default;
+      }
+    }, {
+      key: "DefaultType",
+      get: function get() {
+        return DefaultType;
+      }
+    }, {
+      key: "NAME",
+      get: function get() {
+        return NAME;
+      }
+    }, {
+      key: "isSupported",
+      value: function isSupported() {
+        return 'ontouchstart' in document.documentElement || navigator.maxTouchPoints > 0;
+      }
+    }]);
+    return Swipe;
+  }(Config__default.default);
+  return Swipe;
+});
 
 /***/ }),
 /* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(29);
+module.exports = __webpack_require__(28);
+
+
+/***/ }),
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4816,7 +5007,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 });
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4927,7 +5118,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 });
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
@@ -5293,7 +5484,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 });
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -5799,7 +5990,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 });
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -6192,7 +6383,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 });
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -6325,7 +6516,517 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 });
 
 /***/ }),
-/* 23 */
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _get() { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get.bind(); } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(arguments.length < 3 ? target : receiver); } return desc.value; }; } return _get.apply(this, arguments); }
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+/*!
+  * Bootstrap carousel.js v5.2.3 (https://getbootstrap.com/)
+  * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+  */
+(function (global, factory) {
+  ( false ? undefined : _typeof(exports)) === 'object' && typeof module !== 'undefined' ? module.exports = factory(__webpack_require__(0), __webpack_require__(1), __webpack_require__(6), __webpack_require__(3), __webpack_require__(16), __webpack_require__(2)) :  true ? !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(1), __webpack_require__(6), __webpack_require__(3), __webpack_require__(16), __webpack_require__(2)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : (undefined);
+})(this, function (index, EventHandler, Manipulator, SelectorEngine, Swipe, BaseComponent) {
+  'use strict';
+
+  var _KEY_TO_DIRECTION;
+  var _interopDefaultLegacy = function _interopDefaultLegacy(e) {
+    return e && _typeof(e) === 'object' && 'default' in e ? e : {
+      default: e
+    };
+  };
+  var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
+  var Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
+  var SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
+  var Swipe__default = /*#__PURE__*/_interopDefaultLegacy(Swipe);
+  var BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
+
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap (v5.2.3): carousel.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+  /**
+   * Constants
+   */
+
+  var NAME = 'carousel';
+  var DATA_KEY = 'bs.carousel';
+  var EVENT_KEY = ".".concat(DATA_KEY);
+  var DATA_API_KEY = '.data-api';
+  var ARROW_LEFT_KEY = 'ArrowLeft';
+  var ARROW_RIGHT_KEY = 'ArrowRight';
+  var TOUCHEVENT_COMPAT_WAIT = 500; // Time for mouse compat events to fire after touch
+
+  var ORDER_NEXT = 'next';
+  var ORDER_PREV = 'prev';
+  var DIRECTION_LEFT = 'left';
+  var DIRECTION_RIGHT = 'right';
+  var EVENT_SLIDE = "slide".concat(EVENT_KEY);
+  var EVENT_SLID = "slid".concat(EVENT_KEY);
+  var EVENT_KEYDOWN = "keydown".concat(EVENT_KEY);
+  var EVENT_MOUSEENTER = "mouseenter".concat(EVENT_KEY);
+  var EVENT_MOUSELEAVE = "mouseleave".concat(EVENT_KEY);
+  var EVENT_DRAG_START = "dragstart".concat(EVENT_KEY);
+  var EVENT_LOAD_DATA_API = "load".concat(EVENT_KEY).concat(DATA_API_KEY);
+  var EVENT_CLICK_DATA_API = "click".concat(EVENT_KEY).concat(DATA_API_KEY);
+  var CLASS_NAME_CAROUSEL = 'carousel';
+  var CLASS_NAME_ACTIVE = 'active';
+  var CLASS_NAME_SLIDE = 'slide';
+  var CLASS_NAME_END = 'carousel-item-end';
+  var CLASS_NAME_START = 'carousel-item-start';
+  var CLASS_NAME_NEXT = 'carousel-item-next';
+  var CLASS_NAME_PREV = 'carousel-item-prev';
+  var SELECTOR_ACTIVE = '.active';
+  var SELECTOR_ITEM = '.carousel-item';
+  var SELECTOR_ACTIVE_ITEM = SELECTOR_ACTIVE + SELECTOR_ITEM;
+  var SELECTOR_ITEM_IMG = '.carousel-item img';
+  var SELECTOR_INDICATORS = '.carousel-indicators';
+  var SELECTOR_DATA_SLIDE = '[data-bs-slide], [data-bs-slide-to]';
+  var SELECTOR_DATA_RIDE = '[data-bs-ride="carousel"]';
+  var KEY_TO_DIRECTION = (_KEY_TO_DIRECTION = {}, _defineProperty(_KEY_TO_DIRECTION, ARROW_LEFT_KEY, DIRECTION_RIGHT), _defineProperty(_KEY_TO_DIRECTION, ARROW_RIGHT_KEY, DIRECTION_LEFT), _KEY_TO_DIRECTION);
+  var Default = {
+    interval: 5000,
+    keyboard: true,
+    pause: 'hover',
+    ride: false,
+    touch: true,
+    wrap: true
+  };
+  var DefaultType = {
+    interval: '(number|boolean)',
+    // TODO:v6 remove boolean support
+    keyboard: 'boolean',
+    pause: '(string|boolean)',
+    ride: '(boolean|string)',
+    touch: 'boolean',
+    wrap: 'boolean'
+  };
+  /**
+   * Class definition
+   */
+  var Carousel = /*#__PURE__*/function (_BaseComponent__defau) {
+    _inherits(Carousel, _BaseComponent__defau);
+    var _super = _createSuper(Carousel);
+    function Carousel(element, config) {
+      var _this;
+      _classCallCheck(this, Carousel);
+      _this = _super.call(this, element, config);
+      _this._interval = null;
+      _this._activeElement = null;
+      _this._isSliding = false;
+      _this.touchTimeout = null;
+      _this._swipeHelper = null;
+      _this._indicatorsElement = SelectorEngine__default.default.findOne(SELECTOR_INDICATORS, _this._element);
+      _this._addEventListeners();
+      if (_this._config.ride === CLASS_NAME_CAROUSEL) {
+        _this.cycle();
+      }
+      return _this;
+    } // Getters
+    _createClass(Carousel, [{
+      key: "next",
+      value:
+      // Public
+
+      function next() {
+        this._slide(ORDER_NEXT);
+      }
+    }, {
+      key: "nextWhenVisible",
+      value: function nextWhenVisible() {
+        // FIXME TODO use `document.visibilityState`
+        // Don't call next when the page isn't visible
+        // or the carousel or its parent isn't visible
+        if (!document.hidden && index.isVisible(this._element)) {
+          this.next();
+        }
+      }
+    }, {
+      key: "prev",
+      value: function prev() {
+        this._slide(ORDER_PREV);
+      }
+    }, {
+      key: "pause",
+      value: function pause() {
+        if (this._isSliding) {
+          index.triggerTransitionEnd(this._element);
+        }
+        this._clearInterval();
+      }
+    }, {
+      key: "cycle",
+      value: function cycle() {
+        var _this2 = this;
+        this._clearInterval();
+        this._updateInterval();
+        this._interval = setInterval(function () {
+          return _this2.nextWhenVisible();
+        }, this._config.interval);
+      }
+    }, {
+      key: "_maybeEnableCycle",
+      value: function _maybeEnableCycle() {
+        var _this3 = this;
+        if (!this._config.ride) {
+          return;
+        }
+        if (this._isSliding) {
+          EventHandler__default.default.one(this._element, EVENT_SLID, function () {
+            return _this3.cycle();
+          });
+          return;
+        }
+        this.cycle();
+      }
+    }, {
+      key: "to",
+      value: function to(index) {
+        var _this4 = this;
+        var items = this._getItems();
+        if (index > items.length - 1 || index < 0) {
+          return;
+        }
+        if (this._isSliding) {
+          EventHandler__default.default.one(this._element, EVENT_SLID, function () {
+            return _this4.to(index);
+          });
+          return;
+        }
+        var activeIndex = this._getItemIndex(this._getActive());
+        if (activeIndex === index) {
+          return;
+        }
+        var order = index > activeIndex ? ORDER_NEXT : ORDER_PREV;
+        this._slide(order, items[index]);
+      }
+    }, {
+      key: "dispose",
+      value: function dispose() {
+        if (this._swipeHelper) {
+          this._swipeHelper.dispose();
+        }
+        _get(_getPrototypeOf(Carousel.prototype), "dispose", this).call(this);
+      } // Private
+    }, {
+      key: "_configAfterMerge",
+      value: function _configAfterMerge(config) {
+        config.defaultInterval = config.interval;
+        return config;
+      }
+    }, {
+      key: "_addEventListeners",
+      value: function _addEventListeners() {
+        var _this5 = this;
+        if (this._config.keyboard) {
+          EventHandler__default.default.on(this._element, EVENT_KEYDOWN, function (event) {
+            return _this5._keydown(event);
+          });
+        }
+        if (this._config.pause === 'hover') {
+          EventHandler__default.default.on(this._element, EVENT_MOUSEENTER, function () {
+            return _this5.pause();
+          });
+          EventHandler__default.default.on(this._element, EVENT_MOUSELEAVE, function () {
+            return _this5._maybeEnableCycle();
+          });
+        }
+        if (this._config.touch && Swipe__default.default.isSupported()) {
+          this._addTouchEventListeners();
+        }
+      }
+    }, {
+      key: "_addTouchEventListeners",
+      value: function _addTouchEventListeners() {
+        var _this6 = this;
+        var _iterator = _createForOfIteratorHelper(SelectorEngine__default.default.find(SELECTOR_ITEM_IMG, this._element)),
+          _step;
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var img = _step.value;
+            EventHandler__default.default.on(img, EVENT_DRAG_START, function (event) {
+              return event.preventDefault();
+            });
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+        var endCallBack = function endCallBack() {
+          if (_this6._config.pause !== 'hover') {
+            return;
+          } // If it's a touch-enabled device, mouseenter/leave are fired as
+          // part of the mouse compatibility events on first tap - the carousel
+          // would stop cycling until user tapped out of it;
+          // here, we listen for touchend, explicitly pause the carousel
+          // (as if it's the second time we tap on it, mouseenter compat event
+          // is NOT fired) and after a timeout (to allow for mouse compatibility
+          // events to fire) we explicitly restart cycling
+
+          _this6.pause();
+          if (_this6.touchTimeout) {
+            clearTimeout(_this6.touchTimeout);
+          }
+          _this6.touchTimeout = setTimeout(function () {
+            return _this6._maybeEnableCycle();
+          }, TOUCHEVENT_COMPAT_WAIT + _this6._config.interval);
+        };
+        var swipeConfig = {
+          leftCallback: function leftCallback() {
+            return _this6._slide(_this6._directionToOrder(DIRECTION_LEFT));
+          },
+          rightCallback: function rightCallback() {
+            return _this6._slide(_this6._directionToOrder(DIRECTION_RIGHT));
+          },
+          endCallback: endCallBack
+        };
+        this._swipeHelper = new Swipe__default.default(this._element, swipeConfig);
+      }
+    }, {
+      key: "_keydown",
+      value: function _keydown(event) {
+        if (/input|textarea/i.test(event.target.tagName)) {
+          return;
+        }
+        var direction = KEY_TO_DIRECTION[event.key];
+        if (direction) {
+          event.preventDefault();
+          this._slide(this._directionToOrder(direction));
+        }
+      }
+    }, {
+      key: "_getItemIndex",
+      value: function _getItemIndex(element) {
+        return this._getItems().indexOf(element);
+      }
+    }, {
+      key: "_setActiveIndicatorElement",
+      value: function _setActiveIndicatorElement(index) {
+        if (!this._indicatorsElement) {
+          return;
+        }
+        var activeIndicator = SelectorEngine__default.default.findOne(SELECTOR_ACTIVE, this._indicatorsElement);
+        activeIndicator.classList.remove(CLASS_NAME_ACTIVE);
+        activeIndicator.removeAttribute('aria-current');
+        var newActiveIndicator = SelectorEngine__default.default.findOne("[data-bs-slide-to=\"".concat(index, "\"]"), this._indicatorsElement);
+        if (newActiveIndicator) {
+          newActiveIndicator.classList.add(CLASS_NAME_ACTIVE);
+          newActiveIndicator.setAttribute('aria-current', 'true');
+        }
+      }
+    }, {
+      key: "_updateInterval",
+      value: function _updateInterval() {
+        var element = this._activeElement || this._getActive();
+        if (!element) {
+          return;
+        }
+        var elementInterval = Number.parseInt(element.getAttribute('data-bs-interval'), 10);
+        this._config.interval = elementInterval || this._config.defaultInterval;
+      }
+    }, {
+      key: "_slide",
+      value: function _slide(order) {
+        var _this7 = this;
+        var element = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+        if (this._isSliding) {
+          return;
+        }
+        var activeElement = this._getActive();
+        var isNext = order === ORDER_NEXT;
+        var nextElement = element || index.getNextActiveElement(this._getItems(), activeElement, isNext, this._config.wrap);
+        if (nextElement === activeElement) {
+          return;
+        }
+        var nextElementIndex = this._getItemIndex(nextElement);
+        var triggerEvent = function triggerEvent(eventName) {
+          return EventHandler__default.default.trigger(_this7._element, eventName, {
+            relatedTarget: nextElement,
+            direction: _this7._orderToDirection(order),
+            from: _this7._getItemIndex(activeElement),
+            to: nextElementIndex
+          });
+        };
+        var slideEvent = triggerEvent(EVENT_SLIDE);
+        if (slideEvent.defaultPrevented) {
+          return;
+        }
+        if (!activeElement || !nextElement) {
+          // Some weirdness is happening, so we bail
+          // todo: change tests that use empty divs to avoid this check
+          return;
+        }
+        var isCycling = Boolean(this._interval);
+        this.pause();
+        this._isSliding = true;
+        this._setActiveIndicatorElement(nextElementIndex);
+        this._activeElement = nextElement;
+        var directionalClassName = isNext ? CLASS_NAME_START : CLASS_NAME_END;
+        var orderClassName = isNext ? CLASS_NAME_NEXT : CLASS_NAME_PREV;
+        nextElement.classList.add(orderClassName);
+        index.reflow(nextElement);
+        activeElement.classList.add(directionalClassName);
+        nextElement.classList.add(directionalClassName);
+        var completeCallBack = function completeCallBack() {
+          nextElement.classList.remove(directionalClassName, orderClassName);
+          nextElement.classList.add(CLASS_NAME_ACTIVE);
+          activeElement.classList.remove(CLASS_NAME_ACTIVE, orderClassName, directionalClassName);
+          _this7._isSliding = false;
+          triggerEvent(EVENT_SLID);
+        };
+        this._queueCallback(completeCallBack, activeElement, this._isAnimated());
+        if (isCycling) {
+          this.cycle();
+        }
+      }
+    }, {
+      key: "_isAnimated",
+      value: function _isAnimated() {
+        return this._element.classList.contains(CLASS_NAME_SLIDE);
+      }
+    }, {
+      key: "_getActive",
+      value: function _getActive() {
+        return SelectorEngine__default.default.findOne(SELECTOR_ACTIVE_ITEM, this._element);
+      }
+    }, {
+      key: "_getItems",
+      value: function _getItems() {
+        return SelectorEngine__default.default.find(SELECTOR_ITEM, this._element);
+      }
+    }, {
+      key: "_clearInterval",
+      value: function _clearInterval() {
+        if (this._interval) {
+          clearInterval(this._interval);
+          this._interval = null;
+        }
+      }
+    }, {
+      key: "_directionToOrder",
+      value: function _directionToOrder(direction) {
+        if (index.isRTL()) {
+          return direction === DIRECTION_LEFT ? ORDER_PREV : ORDER_NEXT;
+        }
+        return direction === DIRECTION_LEFT ? ORDER_NEXT : ORDER_PREV;
+      }
+    }, {
+      key: "_orderToDirection",
+      value: function _orderToDirection(order) {
+        if (index.isRTL()) {
+          return order === ORDER_PREV ? DIRECTION_LEFT : DIRECTION_RIGHT;
+        }
+        return order === ORDER_PREV ? DIRECTION_RIGHT : DIRECTION_LEFT;
+      } // Static
+    }], [{
+      key: "Default",
+      get: function get() {
+        return Default;
+      }
+    }, {
+      key: "DefaultType",
+      get: function get() {
+        return DefaultType;
+      }
+    }, {
+      key: "NAME",
+      get: function get() {
+        return NAME;
+      }
+    }, {
+      key: "jQueryInterface",
+      value: function jQueryInterface(config) {
+        return this.each(function () {
+          var data = Carousel.getOrCreateInstance(this, config);
+          if (typeof config === 'number') {
+            data.to(config);
+            return;
+          }
+          if (typeof config === 'string') {
+            if (data[config] === undefined || config.startsWith('_') || config === 'constructor') {
+              throw new TypeError("No method named \"".concat(config, "\""));
+            }
+            data[config]();
+          }
+        });
+      }
+    }]);
+    return Carousel;
+  }(BaseComponent__default.default);
+  /**
+   * Data API implementation
+   */
+  EventHandler__default.default.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_SLIDE, function (event) {
+    var target = index.getElementFromSelector(this);
+    if (!target || !target.classList.contains(CLASS_NAME_CAROUSEL)) {
+      return;
+    }
+    event.preventDefault();
+    var carousel = Carousel.getOrCreateInstance(target);
+    var slideIndex = this.getAttribute('data-bs-slide-to');
+    if (slideIndex) {
+      carousel.to(slideIndex);
+      carousel._maybeEnableCycle();
+      return;
+    }
+    if (Manipulator__default.default.getDataAttribute(this, 'slide') === 'next') {
+      carousel.next();
+      carousel._maybeEnableCycle();
+      return;
+    }
+    carousel.prev();
+    carousel._maybeEnableCycle();
+  });
+  EventHandler__default.default.on(window, EVENT_LOAD_DATA_API, function () {
+    var carousels = SelectorEngine__default.default.find(SELECTOR_DATA_RIDE);
+    var _iterator2 = _createForOfIteratorHelper(carousels),
+      _step2;
+    try {
+      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+        var carousel = _step2.value;
+        Carousel.getOrCreateInstance(carousel);
+      }
+    } catch (err) {
+      _iterator2.e(err);
+    } finally {
+      _iterator2.f();
+    }
+  });
+  /**
+   * jQuery
+   */
+
+  index.defineJQueryPlugin(Carousel);
+  return Carousel;
+});
+
+/***/ }),
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
@@ -6680,7 +7381,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 });
 
 /***/ }),
-/* 24 */
+/* 26 */
 /***/ (function(module, exports) {
 
 /*
@@ -6725,7 +7426,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 })(jQuery);
 
 /***/ }),
-/* 25 */
+/* 27 */
 /***/ (function(module, exports) {
 
 /**
@@ -6804,13 +7505,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 })(jQuery);
 
 /***/ }),
-/* 26 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 27 */
+/* 29 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6818,34 +7519,34 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 __webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./node_modules/bootstrap/js/dist/alert.js
-var dist_alert = __webpack_require__(17);
+var dist_alert = __webpack_require__(18);
 
 // EXTERNAL MODULE: ./node_modules/bootstrap/js/dist/button.js
-var dist_button = __webpack_require__(18);
+var dist_button = __webpack_require__(19);
 
 // EXTERNAL MODULE: ./node_modules/bootstrap/js/dist/collapse.js
-var collapse = __webpack_require__(19);
+var collapse = __webpack_require__(20);
 
 // EXTERNAL MODULE: ./node_modules/bootstrap/js/dist/dropdown.js
-var dropdown = __webpack_require__(20);
+var dropdown = __webpack_require__(21);
 
 // EXTERNAL MODULE: ./node_modules/bootstrap/js/dist/modal.js
-var modal = __webpack_require__(21);
+var modal = __webpack_require__(22);
 
 // EXTERNAL MODULE: ./node_modules/bootstrap/js/dist/popover.js
-var popover = __webpack_require__(22);
+var popover = __webpack_require__(23);
 
 // EXTERNAL MODULE: ./node_modules/bootstrap/js/dist/carousel.js
-var carousel = __webpack_require__(32);
+var carousel = __webpack_require__(24);
 
 // EXTERNAL MODULE: ./node_modules/bootstrap/js/dist/tab.js
-var tab = __webpack_require__(23);
+var tab = __webpack_require__(25);
 
 // EXTERNAL MODULE: ./js/lib/debouncedresize.js
-var debouncedresize = __webpack_require__(24);
+var debouncedresize = __webpack_require__(26);
 
 // EXTERNAL MODULE: ./js/components/mobile.js
-var mobile = __webpack_require__(25);
+var mobile = __webpack_require__(27);
 
 // EXTERNAL MODULE: external "jQuery"
 var external_jQuery_ = __webpack_require__(4);
@@ -8660,710 +9361,6 @@ defineJQueryPlugin(offcanvas_Offcanvas);
 
 
 
-
-/***/ }),
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-/*!
-  * Bootstrap swipe.js v5.2.3 (https://getbootstrap.com/)
-  * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-  */
-(function (global, factory) {
-  ( false ? undefined : _typeof(exports)) === 'object' && typeof module !== 'undefined' ? module.exports = factory(__webpack_require__(5), __webpack_require__(1), __webpack_require__(0)) :  true ? !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(5), __webpack_require__(1), __webpack_require__(0)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : (undefined);
-})(this, function (Config, EventHandler, index) {
-  'use strict';
-
-  var _interopDefaultLegacy = function _interopDefaultLegacy(e) {
-    return e && _typeof(e) === 'object' && 'default' in e ? e : {
-      default: e
-    };
-  };
-  var Config__default = /*#__PURE__*/_interopDefaultLegacy(Config);
-  var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
-
-  /**
-   * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.3): util/swipe.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-   * --------------------------------------------------------------------------
-   */
-  /**
-   * Constants
-   */
-
-  var NAME = 'swipe';
-  var EVENT_KEY = '.bs.swipe';
-  var EVENT_TOUCHSTART = "touchstart".concat(EVENT_KEY);
-  var EVENT_TOUCHMOVE = "touchmove".concat(EVENT_KEY);
-  var EVENT_TOUCHEND = "touchend".concat(EVENT_KEY);
-  var EVENT_POINTERDOWN = "pointerdown".concat(EVENT_KEY);
-  var EVENT_POINTERUP = "pointerup".concat(EVENT_KEY);
-  var POINTER_TYPE_TOUCH = 'touch';
-  var POINTER_TYPE_PEN = 'pen';
-  var CLASS_NAME_POINTER_EVENT = 'pointer-event';
-  var SWIPE_THRESHOLD = 40;
-  var Default = {
-    endCallback: null,
-    leftCallback: null,
-    rightCallback: null
-  };
-  var DefaultType = {
-    endCallback: '(function|null)',
-    leftCallback: '(function|null)',
-    rightCallback: '(function|null)'
-  };
-  /**
-   * Class definition
-   */
-  var Swipe = /*#__PURE__*/function (_Config__default$defa) {
-    _inherits(Swipe, _Config__default$defa);
-    var _super = _createSuper(Swipe);
-    function Swipe(element, config) {
-      var _this;
-      _classCallCheck(this, Swipe);
-      _this = _super.call(this);
-      _this._element = element;
-      if (!element || !Swipe.isSupported()) {
-        return _possibleConstructorReturn(_this);
-      }
-      _this._config = _this._getConfig(config);
-      _this._deltaX = 0;
-      _this._supportPointerEvents = Boolean(window.PointerEvent);
-      _this._initEvents();
-      return _this;
-    } // Getters
-    _createClass(Swipe, [{
-      key: "dispose",
-      value:
-      // Public
-
-      function dispose() {
-        EventHandler__default.default.off(this._element, EVENT_KEY);
-      } // Private
-    }, {
-      key: "_start",
-      value: function _start(event) {
-        if (!this._supportPointerEvents) {
-          this._deltaX = event.touches[0].clientX;
-          return;
-        }
-        if (this._eventIsPointerPenTouch(event)) {
-          this._deltaX = event.clientX;
-        }
-      }
-    }, {
-      key: "_end",
-      value: function _end(event) {
-        if (this._eventIsPointerPenTouch(event)) {
-          this._deltaX = event.clientX - this._deltaX;
-        }
-        this._handleSwipe();
-        index.execute(this._config.endCallback);
-      }
-    }, {
-      key: "_move",
-      value: function _move(event) {
-        this._deltaX = event.touches && event.touches.length > 1 ? 0 : event.touches[0].clientX - this._deltaX;
-      }
-    }, {
-      key: "_handleSwipe",
-      value: function _handleSwipe() {
-        var absDeltaX = Math.abs(this._deltaX);
-        if (absDeltaX <= SWIPE_THRESHOLD) {
-          return;
-        }
-        var direction = absDeltaX / this._deltaX;
-        this._deltaX = 0;
-        if (!direction) {
-          return;
-        }
-        index.execute(direction > 0 ? this._config.rightCallback : this._config.leftCallback);
-      }
-    }, {
-      key: "_initEvents",
-      value: function _initEvents() {
-        var _this2 = this;
-        if (this._supportPointerEvents) {
-          EventHandler__default.default.on(this._element, EVENT_POINTERDOWN, function (event) {
-            return _this2._start(event);
-          });
-          EventHandler__default.default.on(this._element, EVENT_POINTERUP, function (event) {
-            return _this2._end(event);
-          });
-          this._element.classList.add(CLASS_NAME_POINTER_EVENT);
-        } else {
-          EventHandler__default.default.on(this._element, EVENT_TOUCHSTART, function (event) {
-            return _this2._start(event);
-          });
-          EventHandler__default.default.on(this._element, EVENT_TOUCHMOVE, function (event) {
-            return _this2._move(event);
-          });
-          EventHandler__default.default.on(this._element, EVENT_TOUCHEND, function (event) {
-            return _this2._end(event);
-          });
-        }
-      }
-    }, {
-      key: "_eventIsPointerPenTouch",
-      value: function _eventIsPointerPenTouch(event) {
-        return this._supportPointerEvents && (event.pointerType === POINTER_TYPE_PEN || event.pointerType === POINTER_TYPE_TOUCH);
-      } // Static
-    }], [{
-      key: "Default",
-      get: function get() {
-        return Default;
-      }
-    }, {
-      key: "DefaultType",
-      get: function get() {
-        return DefaultType;
-      }
-    }, {
-      key: "NAME",
-      get: function get() {
-        return NAME;
-      }
-    }, {
-      key: "isSupported",
-      value: function isSupported() {
-        return 'ontouchstart' in document.documentElement || navigator.maxTouchPoints > 0;
-      }
-    }]);
-    return Swipe;
-  }(Config__default.default);
-  return Swipe;
-});
-
-/***/ }),
-/* 32 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _get() { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get.bind(); } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(arguments.length < 3 ? target : receiver); } return desc.value; }; } return _get.apply(this, arguments); }
-function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-/*!
-  * Bootstrap carousel.js v5.2.3 (https://getbootstrap.com/)
-  * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-  */
-(function (global, factory) {
-  ( false ? undefined : _typeof(exports)) === 'object' && typeof module !== 'undefined' ? module.exports = factory(__webpack_require__(0), __webpack_require__(1), __webpack_require__(6), __webpack_require__(3), __webpack_require__(31), __webpack_require__(2)) :  true ? !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(1), __webpack_require__(6), __webpack_require__(3), __webpack_require__(31), __webpack_require__(2)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : (undefined);
-})(this, function (index, EventHandler, Manipulator, SelectorEngine, Swipe, BaseComponent) {
-  'use strict';
-
-  var _KEY_TO_DIRECTION;
-  var _interopDefaultLegacy = function _interopDefaultLegacy(e) {
-    return e && _typeof(e) === 'object' && 'default' in e ? e : {
-      default: e
-    };
-  };
-  var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
-  var Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
-  var SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
-  var Swipe__default = /*#__PURE__*/_interopDefaultLegacy(Swipe);
-  var BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
-
-  /**
-   * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.3): carousel.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-   * --------------------------------------------------------------------------
-   */
-  /**
-   * Constants
-   */
-
-  var NAME = 'carousel';
-  var DATA_KEY = 'bs.carousel';
-  var EVENT_KEY = ".".concat(DATA_KEY);
-  var DATA_API_KEY = '.data-api';
-  var ARROW_LEFT_KEY = 'ArrowLeft';
-  var ARROW_RIGHT_KEY = 'ArrowRight';
-  var TOUCHEVENT_COMPAT_WAIT = 500; // Time for mouse compat events to fire after touch
-
-  var ORDER_NEXT = 'next';
-  var ORDER_PREV = 'prev';
-  var DIRECTION_LEFT = 'left';
-  var DIRECTION_RIGHT = 'right';
-  var EVENT_SLIDE = "slide".concat(EVENT_KEY);
-  var EVENT_SLID = "slid".concat(EVENT_KEY);
-  var EVENT_KEYDOWN = "keydown".concat(EVENT_KEY);
-  var EVENT_MOUSEENTER = "mouseenter".concat(EVENT_KEY);
-  var EVENT_MOUSELEAVE = "mouseleave".concat(EVENT_KEY);
-  var EVENT_DRAG_START = "dragstart".concat(EVENT_KEY);
-  var EVENT_LOAD_DATA_API = "load".concat(EVENT_KEY).concat(DATA_API_KEY);
-  var EVENT_CLICK_DATA_API = "click".concat(EVENT_KEY).concat(DATA_API_KEY);
-  var CLASS_NAME_CAROUSEL = 'carousel';
-  var CLASS_NAME_ACTIVE = 'active';
-  var CLASS_NAME_SLIDE = 'slide';
-  var CLASS_NAME_END = 'carousel-item-end';
-  var CLASS_NAME_START = 'carousel-item-start';
-  var CLASS_NAME_NEXT = 'carousel-item-next';
-  var CLASS_NAME_PREV = 'carousel-item-prev';
-  var SELECTOR_ACTIVE = '.active';
-  var SELECTOR_ITEM = '.carousel-item';
-  var SELECTOR_ACTIVE_ITEM = SELECTOR_ACTIVE + SELECTOR_ITEM;
-  var SELECTOR_ITEM_IMG = '.carousel-item img';
-  var SELECTOR_INDICATORS = '.carousel-indicators';
-  var SELECTOR_DATA_SLIDE = '[data-bs-slide], [data-bs-slide-to]';
-  var SELECTOR_DATA_RIDE = '[data-bs-ride="carousel"]';
-  var KEY_TO_DIRECTION = (_KEY_TO_DIRECTION = {}, _defineProperty(_KEY_TO_DIRECTION, ARROW_LEFT_KEY, DIRECTION_RIGHT), _defineProperty(_KEY_TO_DIRECTION, ARROW_RIGHT_KEY, DIRECTION_LEFT), _KEY_TO_DIRECTION);
-  var Default = {
-    interval: 5000,
-    keyboard: true,
-    pause: 'hover',
-    ride: false,
-    touch: true,
-    wrap: true
-  };
-  var DefaultType = {
-    interval: '(number|boolean)',
-    // TODO:v6 remove boolean support
-    keyboard: 'boolean',
-    pause: '(string|boolean)',
-    ride: '(boolean|string)',
-    touch: 'boolean',
-    wrap: 'boolean'
-  };
-  /**
-   * Class definition
-   */
-  var Carousel = /*#__PURE__*/function (_BaseComponent__defau) {
-    _inherits(Carousel, _BaseComponent__defau);
-    var _super = _createSuper(Carousel);
-    function Carousel(element, config) {
-      var _this;
-      _classCallCheck(this, Carousel);
-      _this = _super.call(this, element, config);
-      _this._interval = null;
-      _this._activeElement = null;
-      _this._isSliding = false;
-      _this.touchTimeout = null;
-      _this._swipeHelper = null;
-      _this._indicatorsElement = SelectorEngine__default.default.findOne(SELECTOR_INDICATORS, _this._element);
-      _this._addEventListeners();
-      if (_this._config.ride === CLASS_NAME_CAROUSEL) {
-        _this.cycle();
-      }
-      return _this;
-    } // Getters
-    _createClass(Carousel, [{
-      key: "next",
-      value:
-      // Public
-
-      function next() {
-        this._slide(ORDER_NEXT);
-      }
-    }, {
-      key: "nextWhenVisible",
-      value: function nextWhenVisible() {
-        // FIXME TODO use `document.visibilityState`
-        // Don't call next when the page isn't visible
-        // or the carousel or its parent isn't visible
-        if (!document.hidden && index.isVisible(this._element)) {
-          this.next();
-        }
-      }
-    }, {
-      key: "prev",
-      value: function prev() {
-        this._slide(ORDER_PREV);
-      }
-    }, {
-      key: "pause",
-      value: function pause() {
-        if (this._isSliding) {
-          index.triggerTransitionEnd(this._element);
-        }
-        this._clearInterval();
-      }
-    }, {
-      key: "cycle",
-      value: function cycle() {
-        var _this2 = this;
-        this._clearInterval();
-        this._updateInterval();
-        this._interval = setInterval(function () {
-          return _this2.nextWhenVisible();
-        }, this._config.interval);
-      }
-    }, {
-      key: "_maybeEnableCycle",
-      value: function _maybeEnableCycle() {
-        var _this3 = this;
-        if (!this._config.ride) {
-          return;
-        }
-        if (this._isSliding) {
-          EventHandler__default.default.one(this._element, EVENT_SLID, function () {
-            return _this3.cycle();
-          });
-          return;
-        }
-        this.cycle();
-      }
-    }, {
-      key: "to",
-      value: function to(index) {
-        var _this4 = this;
-        var items = this._getItems();
-        if (index > items.length - 1 || index < 0) {
-          return;
-        }
-        if (this._isSliding) {
-          EventHandler__default.default.one(this._element, EVENT_SLID, function () {
-            return _this4.to(index);
-          });
-          return;
-        }
-        var activeIndex = this._getItemIndex(this._getActive());
-        if (activeIndex === index) {
-          return;
-        }
-        var order = index > activeIndex ? ORDER_NEXT : ORDER_PREV;
-        this._slide(order, items[index]);
-      }
-    }, {
-      key: "dispose",
-      value: function dispose() {
-        if (this._swipeHelper) {
-          this._swipeHelper.dispose();
-        }
-        _get(_getPrototypeOf(Carousel.prototype), "dispose", this).call(this);
-      } // Private
-    }, {
-      key: "_configAfterMerge",
-      value: function _configAfterMerge(config) {
-        config.defaultInterval = config.interval;
-        return config;
-      }
-    }, {
-      key: "_addEventListeners",
-      value: function _addEventListeners() {
-        var _this5 = this;
-        if (this._config.keyboard) {
-          EventHandler__default.default.on(this._element, EVENT_KEYDOWN, function (event) {
-            return _this5._keydown(event);
-          });
-        }
-        if (this._config.pause === 'hover') {
-          EventHandler__default.default.on(this._element, EVENT_MOUSEENTER, function () {
-            return _this5.pause();
-          });
-          EventHandler__default.default.on(this._element, EVENT_MOUSELEAVE, function () {
-            return _this5._maybeEnableCycle();
-          });
-        }
-        if (this._config.touch && Swipe__default.default.isSupported()) {
-          this._addTouchEventListeners();
-        }
-      }
-    }, {
-      key: "_addTouchEventListeners",
-      value: function _addTouchEventListeners() {
-        var _this6 = this;
-        var _iterator = _createForOfIteratorHelper(SelectorEngine__default.default.find(SELECTOR_ITEM_IMG, this._element)),
-          _step;
-        try {
-          for (_iterator.s(); !(_step = _iterator.n()).done;) {
-            var img = _step.value;
-            EventHandler__default.default.on(img, EVENT_DRAG_START, function (event) {
-              return event.preventDefault();
-            });
-          }
-        } catch (err) {
-          _iterator.e(err);
-        } finally {
-          _iterator.f();
-        }
-        var endCallBack = function endCallBack() {
-          if (_this6._config.pause !== 'hover') {
-            return;
-          } // If it's a touch-enabled device, mouseenter/leave are fired as
-          // part of the mouse compatibility events on first tap - the carousel
-          // would stop cycling until user tapped out of it;
-          // here, we listen for touchend, explicitly pause the carousel
-          // (as if it's the second time we tap on it, mouseenter compat event
-          // is NOT fired) and after a timeout (to allow for mouse compatibility
-          // events to fire) we explicitly restart cycling
-
-          _this6.pause();
-          if (_this6.touchTimeout) {
-            clearTimeout(_this6.touchTimeout);
-          }
-          _this6.touchTimeout = setTimeout(function () {
-            return _this6._maybeEnableCycle();
-          }, TOUCHEVENT_COMPAT_WAIT + _this6._config.interval);
-        };
-        var swipeConfig = {
-          leftCallback: function leftCallback() {
-            return _this6._slide(_this6._directionToOrder(DIRECTION_LEFT));
-          },
-          rightCallback: function rightCallback() {
-            return _this6._slide(_this6._directionToOrder(DIRECTION_RIGHT));
-          },
-          endCallback: endCallBack
-        };
-        this._swipeHelper = new Swipe__default.default(this._element, swipeConfig);
-      }
-    }, {
-      key: "_keydown",
-      value: function _keydown(event) {
-        if (/input|textarea/i.test(event.target.tagName)) {
-          return;
-        }
-        var direction = KEY_TO_DIRECTION[event.key];
-        if (direction) {
-          event.preventDefault();
-          this._slide(this._directionToOrder(direction));
-        }
-      }
-    }, {
-      key: "_getItemIndex",
-      value: function _getItemIndex(element) {
-        return this._getItems().indexOf(element);
-      }
-    }, {
-      key: "_setActiveIndicatorElement",
-      value: function _setActiveIndicatorElement(index) {
-        if (!this._indicatorsElement) {
-          return;
-        }
-        var activeIndicator = SelectorEngine__default.default.findOne(SELECTOR_ACTIVE, this._indicatorsElement);
-        activeIndicator.classList.remove(CLASS_NAME_ACTIVE);
-        activeIndicator.removeAttribute('aria-current');
-        var newActiveIndicator = SelectorEngine__default.default.findOne("[data-bs-slide-to=\"".concat(index, "\"]"), this._indicatorsElement);
-        if (newActiveIndicator) {
-          newActiveIndicator.classList.add(CLASS_NAME_ACTIVE);
-          newActiveIndicator.setAttribute('aria-current', 'true');
-        }
-      }
-    }, {
-      key: "_updateInterval",
-      value: function _updateInterval() {
-        var element = this._activeElement || this._getActive();
-        if (!element) {
-          return;
-        }
-        var elementInterval = Number.parseInt(element.getAttribute('data-bs-interval'), 10);
-        this._config.interval = elementInterval || this._config.defaultInterval;
-      }
-    }, {
-      key: "_slide",
-      value: function _slide(order) {
-        var _this7 = this;
-        var element = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-        if (this._isSliding) {
-          return;
-        }
-        var activeElement = this._getActive();
-        var isNext = order === ORDER_NEXT;
-        var nextElement = element || index.getNextActiveElement(this._getItems(), activeElement, isNext, this._config.wrap);
-        if (nextElement === activeElement) {
-          return;
-        }
-        var nextElementIndex = this._getItemIndex(nextElement);
-        var triggerEvent = function triggerEvent(eventName) {
-          return EventHandler__default.default.trigger(_this7._element, eventName, {
-            relatedTarget: nextElement,
-            direction: _this7._orderToDirection(order),
-            from: _this7._getItemIndex(activeElement),
-            to: nextElementIndex
-          });
-        };
-        var slideEvent = triggerEvent(EVENT_SLIDE);
-        if (slideEvent.defaultPrevented) {
-          return;
-        }
-        if (!activeElement || !nextElement) {
-          // Some weirdness is happening, so we bail
-          // todo: change tests that use empty divs to avoid this check
-          return;
-        }
-        var isCycling = Boolean(this._interval);
-        this.pause();
-        this._isSliding = true;
-        this._setActiveIndicatorElement(nextElementIndex);
-        this._activeElement = nextElement;
-        var directionalClassName = isNext ? CLASS_NAME_START : CLASS_NAME_END;
-        var orderClassName = isNext ? CLASS_NAME_NEXT : CLASS_NAME_PREV;
-        nextElement.classList.add(orderClassName);
-        index.reflow(nextElement);
-        activeElement.classList.add(directionalClassName);
-        nextElement.classList.add(directionalClassName);
-        var completeCallBack = function completeCallBack() {
-          nextElement.classList.remove(directionalClassName, orderClassName);
-          nextElement.classList.add(CLASS_NAME_ACTIVE);
-          activeElement.classList.remove(CLASS_NAME_ACTIVE, orderClassName, directionalClassName);
-          _this7._isSliding = false;
-          triggerEvent(EVENT_SLID);
-        };
-        this._queueCallback(completeCallBack, activeElement, this._isAnimated());
-        if (isCycling) {
-          this.cycle();
-        }
-      }
-    }, {
-      key: "_isAnimated",
-      value: function _isAnimated() {
-        return this._element.classList.contains(CLASS_NAME_SLIDE);
-      }
-    }, {
-      key: "_getActive",
-      value: function _getActive() {
-        return SelectorEngine__default.default.findOne(SELECTOR_ACTIVE_ITEM, this._element);
-      }
-    }, {
-      key: "_getItems",
-      value: function _getItems() {
-        return SelectorEngine__default.default.find(SELECTOR_ITEM, this._element);
-      }
-    }, {
-      key: "_clearInterval",
-      value: function _clearInterval() {
-        if (this._interval) {
-          clearInterval(this._interval);
-          this._interval = null;
-        }
-      }
-    }, {
-      key: "_directionToOrder",
-      value: function _directionToOrder(direction) {
-        if (index.isRTL()) {
-          return direction === DIRECTION_LEFT ? ORDER_PREV : ORDER_NEXT;
-        }
-        return direction === DIRECTION_LEFT ? ORDER_NEXT : ORDER_PREV;
-      }
-    }, {
-      key: "_orderToDirection",
-      value: function _orderToDirection(order) {
-        if (index.isRTL()) {
-          return order === ORDER_PREV ? DIRECTION_LEFT : DIRECTION_RIGHT;
-        }
-        return order === ORDER_PREV ? DIRECTION_RIGHT : DIRECTION_LEFT;
-      } // Static
-    }], [{
-      key: "Default",
-      get: function get() {
-        return Default;
-      }
-    }, {
-      key: "DefaultType",
-      get: function get() {
-        return DefaultType;
-      }
-    }, {
-      key: "NAME",
-      get: function get() {
-        return NAME;
-      }
-    }, {
-      key: "jQueryInterface",
-      value: function jQueryInterface(config) {
-        return this.each(function () {
-          var data = Carousel.getOrCreateInstance(this, config);
-          if (typeof config === 'number') {
-            data.to(config);
-            return;
-          }
-          if (typeof config === 'string') {
-            if (data[config] === undefined || config.startsWith('_') || config === 'constructor') {
-              throw new TypeError("No method named \"".concat(config, "\""));
-            }
-            data[config]();
-          }
-        });
-      }
-    }]);
-    return Carousel;
-  }(BaseComponent__default.default);
-  /**
-   * Data API implementation
-   */
-  EventHandler__default.default.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_SLIDE, function (event) {
-    var target = index.getElementFromSelector(this);
-    if (!target || !target.classList.contains(CLASS_NAME_CAROUSEL)) {
-      return;
-    }
-    event.preventDefault();
-    var carousel = Carousel.getOrCreateInstance(target);
-    var slideIndex = this.getAttribute('data-bs-slide-to');
-    if (slideIndex) {
-      carousel.to(slideIndex);
-      carousel._maybeEnableCycle();
-      return;
-    }
-    if (Manipulator__default.default.getDataAttribute(this, 'slide') === 'next') {
-      carousel.next();
-      carousel._maybeEnableCycle();
-      return;
-    }
-    carousel.prev();
-    carousel._maybeEnableCycle();
-  });
-  EventHandler__default.default.on(window, EVENT_LOAD_DATA_API, function () {
-    var carousels = SelectorEngine__default.default.find(SELECTOR_DATA_RIDE);
-    var _iterator2 = _createForOfIteratorHelper(carousels),
-      _step2;
-    try {
-      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-        var carousel = _step2.value;
-        Carousel.getOrCreateInstance(carousel);
-      }
-    } catch (err) {
-      _iterator2.e(err);
-    } finally {
-      _iterator2.f();
-    }
-  });
-  /**
-   * jQuery
-   */
-
-  index.defineJQueryPlugin(Carousel);
-  return Carousel;
-});
 
 /***/ })
 /******/ ]);
