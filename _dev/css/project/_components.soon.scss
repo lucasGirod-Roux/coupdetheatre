@@ -32,6 +32,7 @@
     }
 }
 .c-artcl-mini{
+    position: relative;
     display: flex;
     flex-direction: column;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, .05);
@@ -48,6 +49,7 @@
 }
 .c-artcl-mini__bloc-txt{
     padding: 1.5rem;
+    padding-bottom: 6rem;
     border-radius: 10px;
 }
 .c-artcl-mini__title-artcl{
@@ -83,10 +85,13 @@
 }
 
 .c-arcl-mini__btn{
+    position: absolute;
+    bottom: 1.5rem;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     width: fit-content;
+    left: 0;
+    right: 0;
+    margin: auto;
     background-color: $primary;   
     padding: 1.4rem 1rem;
     text-transform: uppercase;
@@ -125,6 +130,7 @@
     }
     .c-artcl-mini__bloc-txt{
         padding: 1rem;
+        padding-bottom: 6rem;
     }
     .c-artcl-mini__bloc-img{
         img{

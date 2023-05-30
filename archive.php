@@ -25,7 +25,20 @@ $cat_focus = new WP_Query(array(
             endwhile; ?>
         </div>
         <div class="c-soon__bloc-txt">
-            <p>Télécharger le programme 2023 au format PDF <a class="tkt-primary" href="<?php the_field('programme'); ?>">ici</a></p>
+            <p>Télécharger le programme 2023 au format PDF 
+                <?php
+                // WPc QUERY
+                $programme = new WP_Query(array(
+                    'post_type' => 'programme',
+                    'posts_per_page' => 1,
+                ));
+                ?>
+                <?php $i = 0;
+                while ($programme->have_posts()) : $programme->the_post(); ?>
+                    <a class="tkt-primary" target="_blank" href="<?php the_field('programme'); ?>" >ici</a>
+                <?php $i++; endwhile; ?>
+                <?php wp_reset_postdata(); ?>
+            </p>
         </div>
     <?php wp_reset_postdata(); ?>
 

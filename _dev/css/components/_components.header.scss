@@ -21,6 +21,9 @@ header{
 }
 .c-header-icon{
     color: $gray;
+    &:hover{
+        color: $primary;
+    }
 }
 .c-header__bloc-slogan{
     img{

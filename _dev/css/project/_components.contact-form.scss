@@ -45,6 +45,9 @@
     font-size: $h3-font-size;
     font-weight: $headings-font-weight;
     border: none;
+    &:hover{
+        background-color: $secondary;
+    }
     @include media-breakpoint-tablet{
         font-size: $h4-font-size;
         padding: 1rem 1.5rem;

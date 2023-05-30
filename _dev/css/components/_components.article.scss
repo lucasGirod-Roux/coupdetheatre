@@ -7,7 +7,8 @@
 }
 .c-artcl-header-flex{
     display: flex;
-    gap: 6rem;
+    gap: 2rem;
+    justify-content: space-between;
 }
 .c-artcl__bloc-picture{
     p{
@@ -22,6 +23,8 @@
 .c-artcl__header-img{
     border-radius: 10px;
     margin-bottom: 1rem;
+    max-width: 550px;
+    height: auto;
 }
 
 .c-artcl__title{
@@ -79,6 +82,11 @@
 .c-artcl__reserved{
     border-radius: 10px;
     height: fit-content;
+
+    .c-arcl-mini__btn{
+        position: inherit;
+        margin: inherit;
+    }
 }
 // GALERIE
 .c-artcl-galerie{
@@ -220,6 +228,9 @@
         margin-bottom: 0;
         width: 100%;
     }
+    .c-comments-list{
+        padding: 0;
+    }
     .c-artcl-comments__title{
         margin-bottom: 2rem;
     }
@@ -258,6 +269,9 @@
 }
 
 .c-artcl-avis{
+    .c-artcl-content__title{
+        text-align: center;
+    }
     .c-comments{
         margin-bottom: 8rem;
         @include media-breakpoint-tablet{

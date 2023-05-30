@@ -2,7 +2,7 @@
     position: relative;
     z-index: 1;
     margin-top: 5rem;
-    margin-bottom: 80rem;
+    margin-bottom: 3rem;
 }
 
 .c-page-inscr__title{
@@ -21,7 +21,7 @@
     width: 65%;
     margin-left: auto;
     margin-right: 7rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
 }
 .c-page-inscr__txt{
     font-size: $h3-font-size;
@@ -30,30 +30,114 @@
     font-weight: $headings-font-weight;
     color: $gray-dark;
 }
-
+.c-page-inscr__form-txt{
+    font-size: $h4-font-size;
+    width: 35%;
+    margin-left: 10rem;
+    font-weight: $headings-font-weight;
+    color: $gray;
+    margin-top: 13rem;
+}
 @include media-breakpoint-tablet{
     .c-page-inscr{
-        margin-top: 7rem;
+        margin-top: 5rem;
         margin-bottom: 2rem;
     }
-    
     .c-page-inscr__title{
         text-align: center;
         width: 100%;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 11rem;
+        margin-bottom: 3rem;
         font-size: $h1-mobile-font-size;
     }
     .c-page-inscr__subtitle{
         font-size: $h2-mobile-font-size;
         width: 100%;
         margin: 0;
-        margin-bottom: 2rem;
+        margin-bottom: 20rem;
     }
     .c-page-inscr__txt{
         font-size: $h4-font-size;
         width: 100%;
         margin-left: 0;
+    }
+    .c-page-inscr__form-txt{
+        font-size: $h5-font-size;
+        width: 100%;
+        margin-left: inherit;
+        margin-top: 5rem;
+    }
+}
+@include media-breakpoint-mobile{
+    .c-page-inscr__title{
+        margin-bottom: 7rem;
+    }
+    .c-page-inscr__subtitle{
+        margin-bottom: 2rem;
+    }
+}
+
+//IMG
+.c-inscr__arrow1{
+    position: absolute;
+    top: -6rem;
+    right: 7rem;
+    width: 80px;
+    @include media-breakpoint-tablet{display: none;}
+}
+.c-inscr__arrow2{
+    position: absolute;
+    left: -2rem;
+    width: 150px;
+    top: -3rem;
+    @include media-breakpoint-tablet{display: none;}
+}
+
+// Formulaire
+.sib_signup_form{
+    margin-top: 8rem;
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+    @include media-breakpoint-tablet{
+        margin-top: 3rem;
+        width: 100%;
+    }
+    p{
+        margin: 0;
+    }
+    .sib-country-block{display: none;}
+    .sib-item-area input, .sib-item-area textarea{
+        width: 100%;
+        padding: 1rem 1.5rem;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+        font-size: $h4-font-size;
+        border: 1px solid $black;
+        color: $gray-300;
+        @include media-breakpoint-tablet{
+            margin-bottom: 1.5rem;
+        }
+    }
+    
+    .sib-default-btn{
+        background-color: $gray;
+        border-radius: 10px;
+        padding: 20px 2rem;
+        text-transform: uppercase;
+        color: $white;
+        font-size: $h3-font-size;
+        font-weight: $headings-font-weight;
+        border: none;
+        &:hover{
+            background-color: $secondary;
+        }
+        @include media-breakpoint-tablet{
+            font-size: $h4-font-size;
+            padding: 1rem 1.5rem;
+            width: 100%;
+            display: block;
+        }
     }
 }
