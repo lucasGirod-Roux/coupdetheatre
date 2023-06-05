@@ -33,6 +33,10 @@
     color: $secondary;
     text-transform: uppercase;
     letter-spacing: 2px;
+    @include media-breakpoint-mobile{
+        text-align: center;
+        margin-bottom: 2rem;
+    }
 }
 .c-artcl__cat{
     color: $gray-dark;
@@ -44,6 +48,9 @@
     color: $secondary;
     font-size: $h3-font-size;
     margin-bottom: 3.5rem;
+    @include media-breakpoint-mobile{
+        margin-bottom: 1.5rem;
+    }
 }
 .c-artcl-bloc-inf{
     display: flex;
@@ -63,7 +70,7 @@
 }
 
 .c-artcl__content{
-    padding-top: 3rem;
+    padding-top: 1.5rem;
     padding-bottom: 4rem;
     border-bottom: 1.5px solid $gray-dark;
 }
@@ -86,6 +93,10 @@
     .c-arcl-mini__btn{
         position: inherit;
         margin: inherit;
+        @include media-breakpoint-mobile{
+            margin-right: auto;
+            margin-left: auto;
+        }
     }
 }
 // GALERIE
@@ -131,6 +142,9 @@
     margin-bottom: 2rem;
     font-size: $h2-font-size;
     order: 1;
+    @include media-breakpoint-mobile{
+        font-size: $h3-font-size;
+    }
 }
 .c-comments-section{
     border: 5px solid $primary;
@@ -210,7 +224,7 @@
         margin-top: 2rem;
     }
     .c-artcl-header{
-        padding-bottom: 1.5rem;
+        padding-bottom: 3rem;
     }
     .c-artcl-header-flex{
         flex-direction: column;
@@ -222,7 +236,7 @@
         padding-bottom: 2rem;
     }
     .c-comments{
-        padding-top: 1.5rem;
+        padding-top: 3rem;
         padding-bottom: 3rem;
         margin-top: 0;
         margin-bottom: 0;
@@ -233,9 +247,10 @@
     }
     .c-artcl-comments__title{
         margin-bottom: 2rem;
+        font-size: $h2-mobile-font-size;
     }
     .c-artcl-content__title{
-        font-size: $h1-mobile-font-size;
+        font-size: $h2-mobile-font-size;
     }
     .c-artcl-content__txt{
         width: 100%;

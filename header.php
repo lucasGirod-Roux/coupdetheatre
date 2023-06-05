@@ -19,6 +19,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <meta name="description" content="<?php bloginfo('description'); ?>">
+    <meta name="title" content="Coup de théâtre">
+    <meta name="google-site-verification" content="svOa2hi4fBkvGLSvb0d0JPuXeVXDu1k7At7JE1wvsRY" />
     <?php wp_head(); ?>
 </head>
 
@@ -72,3 +74,8 @@
         </div>
     </div>
 </header>
+<?php if (!is_front_page() ) : ?>
+    <style>
+        .c-nav-contact{display: none;}
+    </style>
+<?php endif;?>

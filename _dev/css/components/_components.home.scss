@@ -36,9 +36,9 @@
         margin-bottom: 7rem;
     }
     .c-home-subtitle{
-        font-size: $h4-font-size;
+        font-size: $h5-font-size;
         padding: 0;
-        text-align: start;
+        text-align: center;
     }   
 }
 
@@ -52,26 +52,32 @@
         width: 100%;
     }
     @include media-breakpoint-mobile{
-        margin-top: 4rem;
+        margin-top: 2rem;
     }
     svg{
         color: $gray;
     }
     li{
         font-size: $h4-font-size;
+        @include media-breakpoint-mobile{
+            font-size: $h5-font-size;
+        }
     }
 }
 .c-home-desc__txt{
     font-size: $h2-font-size;
     color: $secondary-light;
     margin-bottom: 2rem;
+    @include media-breakpoint-mobile{
+        font-size: $h4-font-size;
+    }
 }
 // BLOC STORY
 .c-story{
     margin-top: 20rem;
     margin-bottom: 20rem;
     @include media-breakpoint-tablet{
-        margin-top: 8rem;
+        margin-top: 10rem;
         margin-bottom: 15rem;
     }
 }
@@ -96,7 +102,11 @@
     margin-bottom: 2.5rem;
     @include media-breakpoint-mobile{
         text-align: center;
-        font-size: $h2-font-size;
+        font-size: $h2-mobile-font-size;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+
     }
 }
 .c-story__txt{
@@ -104,7 +114,7 @@
     font-size: $h3-font-size;
     color: $white;
     @include media-breakpoint-mobile{
-        font-size: $h4-font-size;
+        font-size: $h5-font-size;
         text-align: start;
     }
 }

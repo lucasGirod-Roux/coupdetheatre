@@ -9,9 +9,13 @@
 }
 .c-inscr__bloc-img{
     width: 60%;
+    max-height: 450px;
     img{
         width: 100%;
         border-radius: 0 300px 300px 0;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
     }
     @include media-breakpoint-tablet{
         width: 100%;
@@ -30,7 +34,7 @@
 }
 
 .c-inscr__title{
-    font-size: $h1-font-size;
+    font-size: $h1-mobile-font-size;
     text-transform: uppercase;
     margin-bottom: 2rem;
     color: $gray;
@@ -41,7 +45,7 @@
 }
 
 .c-inscr-text{
-    font-size: $h3-font-size;
+    font-size: $h4-font-size;
     color: $gray;
     margin-bottom: 1rem;
     @include media-breakpoint-tablet{
@@ -59,11 +63,11 @@
     color: $white;
     background-color: $gray;
     text-transform: uppercase;
-    font-size: $h3-font-size;
+    font-size: $h4-font-size;
     font-weight: $headings-font-weight;
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: 10px;
-    margin-top: 3rem;
+    margin-top: 2rem;
     &:hover{
         color: $white;
         background-color: $secondary;
