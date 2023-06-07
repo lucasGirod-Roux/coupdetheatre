@@ -31,3 +31,18 @@ function placeholder_comment_form_field($fields) {
 
 add_filter('comment_form_default_fields','placeholder_author_email_form_fields');
 add_filter( 'comment_form_defaults', 'placeholder_comment_form_field' );
+
+
+if ( function_exists( 'add_theme_support' ) ) {
+    add_theme_support( 'custom-size-mini' );
+    set_post_thumbnail_size( 400, 600 ); // custum  
+}
+if ( function_exists( 'add_theme_support' ) ) {
+    add_theme_support( 'custom-size-big' );
+    set_post_thumbnail_size( 500, 700 ); // custum  
+}
+
+if ( function_exists( 'add_image_size' ) ) { 
+    add_image_size( 'custom-size',400, 600, true ); //(cropped)
+    add_image_size( 'custom-size-big',500, 700, true ); //(cropped)
+}

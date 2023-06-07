@@ -4,7 +4,7 @@
         <div class="c-artcl-header-flex">
             <div class="c-artcl__bloc-picture"> 
                 <?php if (get_the_post_thumbnail()): ?>
-                    <?php echo get_the_post_thumbnail($post_id, 'full', array('class' => 'lazyload c-artcl__header-img', 'alt' => get_the_title())); ?>
+                    <?php echo get_the_post_thumbnail($post_id, 'custom-size-big', array('class' => 'lazyload c-artcl__header-img', 'alt' => get_the_title())); ?>
                 <?php else : ?>
                     <img class="lazyload c c-artcl__header-default-img" src="<?php echo get_template_directory_uri(); ?>/assets/img/default-fallback-image.jpg" alt="<?php get_the_title() ?>">
                 <?php endif; ?>

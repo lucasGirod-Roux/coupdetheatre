@@ -53,7 +53,7 @@ $cat_focus = new WP_Query(array(
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $cat_focus = new WP_Query(array(
     'category_name' => single_cat_title("", false),
-    'posts_per_page' => 6,
+    'posts_per_page' => 8,
     'paged' => $paged,
     'orderby' => 'date',
     'post__not_in' => $artcl_head_id,
@@ -62,7 +62,7 @@ $cat_focus = new WP_Query(array(
 <div class="c-cat-list">
     <?php if ($cat_focus->have_posts()) : ?>
         <h2 class="c-soon__title">Vous avez manqué</h2>
-        <div class="c-soon">
+        <div class="c-list-artcl">
             <?php $i = 0;
             while ($cat_focus->have_posts()) : $cat_focus->the_post();
                 get_template_part('template-parts/bloc-article');

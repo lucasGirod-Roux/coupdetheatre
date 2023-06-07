@@ -38,9 +38,10 @@ body{
 
 .c-bg-img__artcile{
     position: absolute;
-    top: -15rem;
+    top: -12rem;
     right: 0;
     z-index: 1;
+    width: 350px;
     @include media-breakpoint-tablet{
         display: none;
     }

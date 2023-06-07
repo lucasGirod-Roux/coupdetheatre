@@ -1,6 +1,6 @@
 <div class="c-artcl-mini">
     <div class="c-artcl-mini__bloc-img">
-        <?php echo get_the_post_thumbnail($post_id, 'c-artcl-mini__img', array('class' => 'c-artcl-mini__img', 'alt' => get_the_title())); ?>
+        <?php echo get_the_post_thumbnail($post_id, 'custom-size-mini', array('class' => 'c-artcl-mini__img', 'alt' => get_the_title())); ?>
     </div>
     <div class="c-artcl-mini__bloc-txt">
         <h3 class="c-artcl-mini__title-artcl"><?php the_title(); ?></h3>
