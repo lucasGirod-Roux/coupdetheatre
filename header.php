@@ -38,6 +38,9 @@
         <button class="navbar-toggler c-header-burger c-icon c-icon--center-y" data-bs-toggle="collapse" data-bs-target="#navbarNav" role="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <?php echo file_get_contents(get_template_directory_uri() . '/assets/img/bs-icons/list.svg') ?>
         </button>
+        <div class="c-header__searchbar">
+                <?php get_template_part('template-parts/searchbar'); ?>
+            </div>
         <div class="c-header-menu">
             <div class="c-header__bloc-menu">
                 <?php wp_nav_menu(['theme_location' => 'menu-1', 'container' => false, 'menu_class' => 'c-header-menu__links']) ?>

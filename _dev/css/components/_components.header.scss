@@ -5,6 +5,10 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 3rem;
+}
+.c-header-menu{
+    width: max-content;
 }
 .c-header-menu, .c-header-network, .c-header-menu__links{
     display: flex;
@@ -12,6 +16,7 @@ header{
     align-items: center;
 }
 .c-header__bloc-menu{
+    width: max-content;
     font-size: $h3-font-size; //24
     color: $gray;
     ul{margin-bottom: 0;}
@@ -40,8 +45,12 @@ header{
     background-color: transparent;
     border: none;
     font-size: 2rem;
+    order: 2;
 }
 @include media-breakpoint-mobile{
+    .c-header{
+        gap: 1rem;
+    }
     .c-header-menu{
         display: none;
     }
@@ -51,6 +60,7 @@ header{
         gap: .5rem;
     }
     .c-header__bloc-menu{
+        width: inherit;
         ul{
             margin-bottom: .5rem;
         }
@@ -58,5 +68,23 @@ header{
     .c-header-network{
         justify-content: center;
         gap: 1rem;
+    }
+}
+
+//SEARCHBAR
+.c-header__searchbar{
+    width: 100%;
+}
+.c-search{
+    display: flex;
+    border: 1px solid $gray-light;
+    border-radius: 100px;
+    background-color: transparent;
+    .c-search__input{
+        border: none;
+        background-color: transparent;
+    }
+    .form-control:focus{
+        box-shadow: none;
     }
 }

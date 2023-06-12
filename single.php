@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="c-artcl__reserved">
-                <p class="c-artcl-mini__price">dès <span class="price-primary">5,00€</span></p>
+                <p class="c-artcl-mini__price">dès <span class="price-primary">3,00€</span></p>
                 <a href="#" rel="bookmark" class="c-arcl-mini__btn" href="">Réserver</a>
             </div>
         </div>

@@ -23,7 +23,7 @@ $cat_focus = new WP_Query(array(
                 $artcl_head_id[]= get_the_id();
                 $i++;
             endwhile; ?>
-        </div>
+        
         <div class="c-soon__bloc-txt">
             <p>Télécharger le programme 2023 au format PDF 
                 <?php
@@ -40,11 +40,29 @@ $cat_focus = new WP_Query(array(
                 <?php wp_reset_postdata(); ?>
             </p>
         </div>
+        </div>
     <?php wp_reset_postdata(); ?>
 
     <?php else : ?>
         <p>Désolé il n'y a aucun article</p>
     <?php endif; ?>
+
+    <div class="c-soon__bloc-txt--mobile">
+            <p>Télécharger le programme 2023 au format PDF 
+                <?php
+                // WPc QUERY
+                $programme = new WP_Query(array(
+                    'post_type' => 'programme',
+                    'posts_per_page' => 1,
+                ));
+                ?>
+                <?php $i = 0;
+                while ($programme->have_posts()) : $programme->the_post(); ?>
+                    <a class="tkt-primary" target="_blank" href="<?php the_field('programme'); ?>" >ici</a>
+                <?php $i++; endwhile; ?>
+                <?php wp_reset_postdata(); ?>
+            </p>
+        </div>
 </div>
 
 

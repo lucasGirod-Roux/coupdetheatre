@@ -75,35 +75,34 @@
         <div class="c-bloc-soon">
             <h2 class="c-soon__title">Prochainement</h2>
             <?php if ($cat_focus->have_posts()) : ?>
-                <div class="c-soon">
-                    <?php $i = 0;
-                    while ($cat_focus->have_posts()) : $cat_focus->the_post();
-                        get_template_part('template-parts/bloc-article');
-                        $i++;
-                    endwhile; ?>
-                </div>
-            <?php wp_reset_postdata(); ?>
-
-            <?php else : ?>
-                <p>Désolé il n'y a aucun article</p>
-            <?php endif; ?>
-            <div class="c-soon__bloc-txt">
-            <p>Télécharger le programme 2023 au format PDF 
-                <?php
-                // WPc QUERY
-                $programme = new WP_Query(array(
-                    'post_type' => 'programme',
-                    'posts_per_page' => 1,
-                ));
-                ?>
+            <div class="c-soon">
                 <?php $i = 0;
-                while ($programme->have_posts()) : $programme->the_post(); ?>
-                    <a class="tkt-primary" target="_blank" href="<?php the_field('programme'); ?>" >ici</a>
-                <?php $i++; endwhile; ?>
+                while ($cat_focus->have_posts()) : $cat_focus->the_post();
+                    get_template_part('template-parts/bloc-article');
+                    $i++;
+                endwhile; ?>
                 <?php wp_reset_postdata(); ?>
-            </p>
-                <a href="/category/pieces/" class="c-soon-btn">Voir plus</a>
-                
+
+                <?php else : ?>
+                    <p>Désolé il n'y a aucun article</p>
+                <?php endif; ?>
+                <div class="c-soon__bloc-txt">
+                    <p>Télécharger le programme 2023 au format PDF 
+                        <?php
+                        // WPc QUERY
+                        $programme = new WP_Query(array(
+                            'post_type' => 'programme',
+                            'posts_per_page' => 1,
+                        ));
+                        ?>
+                        <?php $i = 0;
+                        while ($programme->have_posts()) : $programme->the_post(); ?>
+                            <a class="tkt-primary" target="_blank" href="<?php the_field('programme'); ?>" >ici</a>
+                        <?php $i++; endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
+                    </p>
+                    <a href="/category/pieces/" class="c-soon-btn">Voir plus</a>
+                </div>
             </div>
         </div>
         

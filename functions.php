@@ -43,6 +43,6 @@ if ( function_exists( 'add_theme_support' ) ) {
 }
 
 if ( function_exists( 'add_image_size' ) ) { 
-    add_image_size( 'custom-size',400, 600, true ); //(cropped)
+    add_image_size( 'custom-size-mini',400, 600, true ); //(cropped)
     add_image_size( 'custom-size-big',500, 700, true ); //(cropped)
 }

@@ -3,7 +3,6 @@
     grid-template-columns: repeat(12,1fr);
     grid-column-gap: 5rem;
     background-color: transparent;
-    margin-bottom: 2rem;
 }
 .c-soon{
     grid-template-columns: repeat(11,1fr);
@@ -31,6 +30,29 @@
     grid-column: 10/13;
 }
 
+.c-soon__bloc-txt,.c-soon__bloc-txt--mobile{
+    grid-column: 2/11;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: $h4-font-size;
+    margin-top: 2rem;
+    .tkt-primary{
+        color: $primary;
+        display: inline-block;
+        &:hover{text-decoration: underline;}
+    }
+}
+.c-soon__bloc-txt{
+    @include media-breakpoint-mobile{display: none;}
+}
+.c-soon__bloc-txt--mobile{
+    display: none;
+    @include media-breakpoint-mobile{
+        display: inherit;
+        font-size: $font-size-base;
+    }
+}
 .c-bloc-soon{
     margin-bottom: 6rem;
     @include media-breakpoint-tablet{
@@ -126,17 +148,7 @@
         background-color: $primary-hover;
     }
 }
-.c-soon__bloc-txt{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: $h3-font-size;
-    .tkt-primary{
-        color: $primary;
-        display: inline-block;
-        &:hover{text-decoration: underline;}
-    }
-}
+
 .c-soon-btn{
     display: inline-block;
     &:hover{text-decoration: underline;}
