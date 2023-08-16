@@ -25,7 +25,7 @@
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/arrow2.png" alt="Fléche" class="c-inscr__arrow2"/>
     </div>
     <p class="c-page-inscr__form-txt">Un petit entretien vous sera proposé en ce qui concerne les demandes adultes.</p>
-    <?php// echo do_shortcode('[sibwp_form id=2]') ?>
+    <?php // echo do_shortcode('[sibwp_form id=2]') ?>
     <?php echo do_shortcode('[contact-form-7 id="1063" title="pre-inscription"]') ?>
 </div>
 <?php get_footer(); ?>
