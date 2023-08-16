@@ -9,7 +9,7 @@
 <div class="o-wrapper c-page-inscr">
     <h1 class="c-page-inscr__title">Bienvenue sur la page pré inscription</h1>
     <p class="c-page-inscr__subtitle">
-        C’est super ! Cependant il faut savoir que la pratique
+        Cependant il faut savoir que la pratique
         théâtrale demande de la rigueur, de l’assiduité ainsi
         que de la disponibilité pour mener à bien nos représentation ! Nos projets de spectacles commencent dès septembre où les
         inscriptions vont se finaliser.
@@ -25,6 +25,7 @@
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/arrow2.png" alt="Fléche" class="c-inscr__arrow2"/>
     </div>
     <p class="c-page-inscr__form-txt">Un petit entretien vous sera proposé en ce qui concerne les demandes adultes.</p>
-    <?php echo do_shortcode('[sibwp_form id=2]') ?>
+    <?php// echo do_shortcode('[sibwp_form id=2]') ?>
+    <?php echo do_shortcode('[contact-form-7 id="294" title="pre-inscription"]') ?>
 </div>
 <?php get_footer(); ?>

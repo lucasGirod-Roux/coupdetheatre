@@ -1,10 +1,8 @@
 .c-inscr{
     display: flex;
     background-color: $primary-light;
-    margin-bottom: 8rem;
     @include media-breakpoint-tablet{
         flex-direction: column;
-        margin-bottom: 5rem;
     }
 }
 .c-inscr__bloc-img{

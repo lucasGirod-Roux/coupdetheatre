@@ -1,24 +1,24 @@
 .c-map{
-    margin-top: 5rem;
-    margin-bottom: 10rem;
+    margin-top:4rem;
+    margin-bottom: 4rem;
     display: flex;
     justify-content: space-between;
 }
 .c-map__item{
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: center;
 
 }
 .c-map__bloc-icon{
     background-color: $primary;
     border-radius: 100%;
-    padding: 1.5rem;
+    padding: 1rem;
     width: fit-content;
 
     svg{
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 2rem;
+        height: 2rem;
         color: $white;
     }
 }
@@ -32,7 +32,7 @@
         flex-direction: column;
         gap: 2rem;
         margin-top: 2.5em;
-        margin-bottom: 5rem;
+        margin-bottom: 2.5rem;
     }
     .c-map__bloc-icon{
         padding: 1rem;

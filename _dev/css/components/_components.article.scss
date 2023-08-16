@@ -87,7 +87,6 @@
 }
 
 .c-artcl__reserved{
-    border-radius: 10px;
     height: fit-content;
 
     .c-arcl-mini__btn{
@@ -155,6 +154,9 @@
 .c-comments__grid{
     display: flex;
     flex-direction: column;
+    .form-submit{
+        margin-bottom: 0;
+    }
 }
 .c-comments-section{
     .comment-form-url,.comment-form-cookies-consent,label, .comment-notes{display: none; }
@@ -177,13 +179,13 @@
     }
     .c-comments__btn-submit{
         background-color: $primary;
-        padding: .5rem 1.5rem;
+        padding: .5rem 1rem;
         color: $white;
         text-transform: uppercase;
         display: block;
         width: fit-content;
         font-weight: $headings-font-weight;
-        font-size: $h3-font-size;
+        font-size: $h5-font-size;
         &:hover{
             background-color: $primary-hover;
         }

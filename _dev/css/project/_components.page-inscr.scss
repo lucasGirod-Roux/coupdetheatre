@@ -1,3 +1,9 @@
+//Page
+.c-page{
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+// pre-insr
 .c-page-inscr{
     position: relative;
     z-index: 1;
@@ -81,7 +87,7 @@
 //IMG
 .c-inscr__arrow1{
     position: absolute;
-    top: -6rem;
+    top: -5rem;
     right: 7rem;
     width: 80px;
     @include media-breakpoint-tablet{display: none;}
@@ -89,12 +95,27 @@
 .c-inscr__arrow2{
     position: absolute;
     left: -2rem;
-    width: 150px;
-    top: -3rem;
+    width: 115px;
+    top: -2rem;
     @include media-breakpoint-tablet{display: none;}
 }
 
 // Formulaire
+.c-page-inscr{
+    .wpcf7{
+        margin-top: 8rem;
+        width: 70%;
+        margin-right: auto;
+        margin-left: auto;
+        @include media-breakpoint-tablet{
+            margin-top: 3rem;
+            width: 100%;
+        }
+        p{
+            margin: 0;
+        }
+    }
+}
 .sib_signup_form{
     margin-top: 8rem;
     width: 70%;
@@ -124,10 +145,10 @@
     .sib-default-btn{
         background-color: $gray;
         border-radius: 10px;
-        padding: 20px 2rem;
+        padding: 1rem;
         text-transform: uppercase;
         color: $white;
-        font-size: $h3-font-size;
+        font-size: $h5-font-size;
         font-weight: $headings-font-weight;
         border: none;
         &:hover{

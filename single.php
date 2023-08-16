@@ -8,6 +8,7 @@
                 <?php else : ?>
                     <img class="lazyload c c-artcl__header-default-img" src="<?php echo get_template_directory_uri(); ?>/assets/img/default-fallback-image.jpg" alt="<?php get_the_title() ?>">
                 <?php endif; ?>
+                <p>Une pièce de <span><?php the_field('auteur'); ?></span></p>
                 <p>Mise en scène par <span><?php the_field('metteur_en_scene'); ?></span></p>
             </div>
             <div class="c-artcl__bloc-txt">
@@ -15,7 +16,7 @@
                 <?php foreach (get_the_tags($post_id) as $category) { ?>
                     <span class="c-artcl__cat"> <?php echo $category->cat_name; ?></span>
                 <?php } ?>
-                <p class="c-artcl-inf__title">Information</p>
+                <p class="c-artcl-inf__title">Informations</p>
                 <div class="c-artcl-bloc-inf">
                     <span class="c-artcl__inf-label">Date</span>
                     <span class="c-artcl__inf"><?php the_field('date'); ?></span>
@@ -32,7 +33,7 @@
                     </p>
                 </div>
                 <div class="c-artcl-bloc-inf">
-                    <span class="c-artcl__inf-label">Acteur</span>
+                    <span class="c-artcl__inf-label">Distribution</span>
                     <span class="c-artcl__inf"><?php the_field('acteur'); ?></span>
                 </div>
             </div>

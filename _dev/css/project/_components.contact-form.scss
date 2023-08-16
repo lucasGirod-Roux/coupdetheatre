@@ -1,19 +1,22 @@
 .c-contact-form__title{
-    font-size: $h1-font-size;
+    font-size: $h1-mobile-font-size;
     text-align: center;
     color: $gray;
     text-transform: uppercase;
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;
     line-height: 56px;
     @include media-breakpoint-tablet{
         font-size: $h2-mobile-font-size;
         margin-bottom: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        line-height: 2rem;
     }
 }
 .c-contact-form{
     width: 45%;
     padding-top: 2rem;
-    margin-bottom: 8rem;
+    margin-bottom: 4rem;
     p{
         margin: 0;
     }
@@ -23,34 +26,35 @@
         padding-top: 1rem;
     }
 }
-.wpcf7-textarea, .wpcf7-text{
+.wpcf7-textarea, .wpcf7-text, .wpcf7-date{
     width: 100%;
-    padding: 1rem 1.5rem;
+    padding: 1rem;
     border-radius: 10px;
-    margin-bottom: 2rem;
-    font-size: $h4-font-size;
+    margin-bottom: 1.5rem;
+    font-size: $h5-font-size;
     border: 1px solid $black;
     color: $gray-300;
     @include media-breakpoint-tablet{
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
+        font-size: $font-size-base;
     }
 }
 
 .wpcf7-submit{
     background-color: $gray;
     border-radius: 10px;
-    padding: 20px 2rem;
+    padding: 1rem 1.5rem;
     text-transform: uppercase;
     color: $white;
-    font-size: $h3-font-size;
+    font-size: $h4-font-size;
     font-weight: $headings-font-weight;
     border: none;
     &:hover{
         background-color: $secondary;
     }
     @include media-breakpoint-tablet{
-        font-size: $h4-font-size;
-        padding: 1rem 1.5rem;
+        font-size: $h5-font-size;
+        padding: .5rem 1rem;
         width: 100%;
         display: block;
     }

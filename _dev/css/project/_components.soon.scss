@@ -60,9 +60,9 @@
     }
 }
 .c-soon__title{
-    font-size: $h1-font-size;
+    font-size: $h1-mobile-font-size;
     text-transform: uppercase;
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;
     color: $gray;
     @include media-breakpoint-tablet{
         font-size: $h2-font-size;

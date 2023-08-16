@@ -115,7 +115,7 @@
     
     <!-- Map -->
 
-    <?php echo do_shortcode('[mappress mapid="1"]') ?>
+    <?php // echo do_shortcode('[mappress mapid="1"]') ?>
     <div class="c-map o-wrapper">
         <div class="c-map__item">
             <div class="c-map__bloc-icon">
