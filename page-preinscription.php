@@ -11,7 +11,7 @@
     <p class="c-page-inscr__subtitle">
         Cependant il faut savoir que la pratique
         théâtrale demande de la rigueur, de l’assiduité ainsi
-        que de la disponibilité pour mener à bien nos représentation ! Nos projets de spectacles commencent dès septembre où les
+        que de la disponibilité pour mener à bien nos représentations ! Nos projets de spectacles commencent dès septembre où les
         inscriptions vont se finaliser.
     </p>
     <div class="bg-relative">
@@ -26,6 +26,6 @@
     </div>
     <p class="c-page-inscr__form-txt">Un petit entretien vous sera proposé en ce qui concerne les demandes adultes.</p>
     <?php // echo do_shortcode('[sibwp_form id=2]') ?>
-    <?php echo do_shortcode('[contact-form-7 id="1063" title="pre-inscription"]') ?>
+    <?php echo do_shortcode('[contact-form-7 id="f8605d3" title="pre-inscription"]') ?>
 </div>
 <?php get_footer(); ?>
