@@ -32,7 +32,7 @@
     <div class="o-wrapper c-header">
         <div class="c-header__bloc-slogan">
             <a href="<?php bloginfo('url') ?>">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo-cdt.png" alt="logo" class="c-header__logo"/>
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo-cdt2.png" alt="logo" class="c-header__logo"/>
             </a>
         </div> 
         <button class="navbar-toggler c-header-burger c-icon c-icon--center-y" data-bs-toggle="collapse" data-bs-target="#navbarNav" role="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
