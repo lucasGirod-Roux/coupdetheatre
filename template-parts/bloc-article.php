@@ -8,7 +8,7 @@
         <div class="c-artcl-mini__ville"><?php the_field('ville'); ?></div>
         <div class="c-artcl-mini__date"><?php the_field('date'); ?></div>
         <div class="c-artcl-mini__bloc-buy">
-            <span class="c-artcl-mini__price">dès <span class="price-primary">3,00€</span></span>
+            <!-- <span class="c-artcl-mini__price">dès <span class="price-primary">3,00€</span></span> -->
             <a href="<?php the_permalink() ?>" rel="bookmark" class="c-arcl-mini__btn" href="">Voir la pièce</a>
         </div>
     </div>

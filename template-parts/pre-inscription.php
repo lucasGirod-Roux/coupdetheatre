@@ -1,6 +1,6 @@
 <div class="c-inscr">
     <div class="c-inscr__bloc-img">
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/inscr.jpg" alt="photo groupe theatre" class="c-footer__logo"/>
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/inscr2.jpg" alt="photo groupe theatre" class="c-footer__logo"/>
     </div>
     <div class="c-inscr__bloc-txt">
         <h2 class="c-inscr__title">pré-inscription</h2>

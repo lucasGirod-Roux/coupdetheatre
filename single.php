@@ -38,8 +38,8 @@
                 </div>
             </div>
             <div class="c-artcl__reserved">
-                <p class="c-artcl-mini__price">dès <span class="price-primary">3,00€</span></p>
-                <a href="#" rel="bookmark" class="c-arcl-mini__btn" href="">Réserver</a>
+                <!-- <p class="c-artcl-mini__price">dès <span class="price-primary">3,00€</span></p> -->
+                <a href="https://coupdetheatre.asso.fr/reservation/" rel="bookmark" class="c-arcl-mini__btn" href="">Réserver</a>
             </div>
         </div>
     </div>

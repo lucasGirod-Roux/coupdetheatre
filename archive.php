@@ -25,7 +25,7 @@ $cat_focus = new WP_Query(array(
             endwhile; ?>
         
         <div class="c-soon__bloc-txt">
-            <p>Télécharger le programme 2023 au format PDF 
+            <p>Télécharger le programme 2024 au format PDF 
                 <?php
                 // WPc QUERY
                 $programme = new WP_Query(array(
@@ -48,7 +48,7 @@ $cat_focus = new WP_Query(array(
     <?php endif; ?>
 
     <div class="c-soon__bloc-txt--mobile">
-            <p>Télécharger le programme 2023 au format PDF 
+            <p>Télécharger le programme 2024 au format PDF 
                 <?php
                 // WPc QUERY
                 $programme = new WP_Query(array(
